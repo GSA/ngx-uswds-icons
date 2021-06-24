@@ -1,0 +1,11 @@
+{
+  "name": "ngx-uswds-icons",
+  "version": "0.0.1",
+  "types": "../../../dist/out-tsc/projects/icons/index.d.ts",
+  "peerDependencies": {
+    "@angular/common": "^10.2.4",
+    "@angular/core": "^10.2.4"
+  },
+  "dependencies": {
+  }
+}
