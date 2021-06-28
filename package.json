@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "npm run regenerateIcons && ng serve",
     "build": "npm run regenerateIcons && ng build",
+    "build-prod": "npm run regenerateIcons && ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
