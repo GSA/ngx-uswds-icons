@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { IconsComponent } from './icon.component';
+import { StackedIconComponent } from './stacked-icon.component';
 
-describe('IconsComponent', () => {
-  let component: IconsComponent;
-  let fixture: ComponentFixture<IconsComponent>;
+describe('StackedIconComponent', () => {
+  let component: StackedIconComponent;
+  let fixture: ComponentFixture<StackedIconComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ IconsComponent ]
+      declarations: [ StackedIconComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(IconsComponent);
+    fixture = TestBed.createComponent(StackedIconComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

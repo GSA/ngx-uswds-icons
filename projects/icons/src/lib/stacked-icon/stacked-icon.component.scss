@@ -1,0 +1,45 @@
+.usa-stack{
+  display: inline-block;
+  height: 2em;
+  line-height: 2em;
+  position: relative;
+  vertical-align: middle;
+  width: 2em;
+
+  &.usa-stack-xs{
+    font-size: .75em;
+  }
+  &.usa-stack-sm{
+    font-size: .875em;
+  }
+  &.usa-stack-lg{
+    font-size: 1.33em;
+  }
+  &.usa-stack-2x{
+    font-size: 2em;
+  }
+  &.usa-stack-3x{
+    font-size: 3em;
+  }
+  &.usa-stack-4x{
+    font-size: 4em;
+  }
+  &.usa-stack-5x{
+    font-size: 5em;
+  }
+  &.usa-stack-6x{
+    font-size: 6em;
+  }
+  &.usa-stack-7x{
+    font-size: 7em;
+  }
+  &.usa-stack-8x{
+    font-size: 8em;
+  }
+  &.usa-stack-9x{
+    font-size: 9em;
+  }
+  &.usa-stack-10x{
+    font-size: 10em;
+  }
+}

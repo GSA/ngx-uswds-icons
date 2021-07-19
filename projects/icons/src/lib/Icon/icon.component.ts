@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'i-uswds',
+  selector: 'usa-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss']
 })

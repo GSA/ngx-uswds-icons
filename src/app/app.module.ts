@@ -3,7 +3,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { IconModule } from 'projects/icons/src/public-api';
+import { IconModule, StackedIconModule } from 'projects/icons/src/public-api';
 import { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';
 import { allIcons as sdsIcons } from 'projects/icons/src/public-api';
 import { uswdsAllIcons } from 'projects/icons/src/public-api';
@@ -26,6 +26,7 @@ export const appendPrefix = (iconsObject, prefix): Object => {
     BrowserModule,
     AppRoutingModule,
     IconModule,
+    StackedIconModule,
     NgxBootstrapIconsModule.pick(Object.assign(
       {},
       _.cloneDeep(allIcons),

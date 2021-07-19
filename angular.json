@@ -128,7 +128,7 @@
       "projectType": "library",
       "root": "projects/icons",
       "sourceRoot": "projects/icons/src",
-      "prefix": "lib",
+      "prefix": "usa",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
