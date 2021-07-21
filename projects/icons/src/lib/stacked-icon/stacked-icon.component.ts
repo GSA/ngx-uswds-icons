@@ -8,7 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class StackedIconComponent {
 
   @Input()
-  sizeModifier: string;
+  size: string;
 
   constructor() { }
 
