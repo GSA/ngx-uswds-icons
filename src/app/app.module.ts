@@ -10,11 +10,11 @@ import { uswdsAllIcons } from 'projects/icons/src/public-api';
 import { CommonModule } from '@angular/common';
 import * as _ from 'lodash';
 
-export const appendPrefix = (iconsObject, prefix): Object => {
+export const appendPrefix = (iconsObject, prefix): object => {
   const a = {};
   Object.keys(iconsObject).forEach(key => {
-    a[`${prefix}${_.upperFirst(key)}`]=iconsObject[key];
-  })
+    a[`${prefix}${_.upperFirst(key)}`] = iconsObject[key];
+  });
   return a;
 };
 
