@@ -24,7 +24,6 @@ i-bs ::ng-deep{
     width: 1em;
     height: 1em;
     overflow: visible;
-    display: block;
   }
 }
 
@@ -77,4 +76,10 @@ i-bs{
   display: flex;
   align-items: center;
   justify-content: center;
+
+  i-bs ::ng-deep{
+    svg {
+      display: block;
+    }
+  }
 }
