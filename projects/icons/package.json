@@ -1,6 +1,6 @@
 {
   "name": "@gsa-sam/ngx-uswds-icons",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "types": "../../../dist/out-tsc/projects/icons/index.d.ts",
   "peerDependencies": {
     "@angular/common": "^10.2.4",
