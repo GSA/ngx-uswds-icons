@@ -83,3 +83,11 @@ i-bs{
     }
   }
 }
+
+:host.icon-display-block{
+  i-bs ::ng-deep{
+    svg {
+      display: block;
+    }
+  }
+}
