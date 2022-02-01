@@ -1,19 +1,6 @@
 {
     "pipes": [],
-    "interfaces": [
-        {
-            "name": "User",
-            "id": "interface-User-9c7e5f1bbbab702cb032307d130876cb68969b0cd4eedef32a0c8cad8081a54e5f8f577ed6ad4539c1b99a1d246cb34031d198c2ea8eba440e64e91b14f01fdc",
-            "file": "src/stories/User.ts",
-            "deprecated": false,
-            "deprecationMessage": "",
-            "type": "interface",
-            "sourceCode": "export interface User {}\n",
-            "properties": [],
-            "indexSignatures": [],
-            "methods": []
-        }
-    ],
+    "interfaces": [],
     "injectables": [],
     "guards": [],
     "interceptors": [],
@@ -168,100 +155,64 @@
             "templateData": "<div class=\"icon-container\">\n  <div *ngFor=\"let key of keys\" class=\"icon\">\n    <usa-icon [icon]=\"key\"></usa-icon>\n    <p class=\"sml\">{{key}}</p>\n  </div>\n</div>\n<hr>\n<div class=\"icon-container\">\n  <div *ngFor=\"let key of sdsKeys; index as i\" class=\"icon\">\n    <usa-icon [icon]=\"sdsUniqueNames[i]\"></usa-icon>\n    <p class=\"sml\">{{key}}</p>\n  </div>\n</div>\n<hr>\n<div class=\"icon-container\">\n  <div *ngFor=\"let key of uswdsKeys\" class=\"icon\">\n    <usa-icon [icon]=\"key\"></usa-icon>\n    <p class=\"sml\">{{key}}</p>\n  </div>\n</div>\n\n\n\n<router-outlet></router-outlet>\n"
         },
         {
-            "name": "ButtonComponent",
-            "id": "component-ButtonComponent-4ef205c97a334c309aa4001c8ab4a6d9571dcae18d0e85aaf0d367467ab5d3a9f13ab3573726f1fcb409bc9b49894dadfb80b1bbe1b6ba7041455ad9d4922004",
-            "file": "src/stories/button.component.ts",
+            "name": "IconBasicComponent",
+            "id": "component-IconBasicComponent-2a0166ed4ad1b521ec2e14b4db7a5549fe46e860a08390e96f426bd0e749fe8583d93c22522c3aaff6079ae62c33ed1974baf91e09a7bf501dc52dc2547065ce",
+            "file": "src/app/components/icon/icon-basic/icon-basic.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-button",
-            "styleUrls": [
-                "./button.css"
-            ],
+            "selector": "app-icon-basic",
+            "styleUrls": [],
             "styles": [],
-            "template": "<button   type=\"button\"\n   (click)=\"onClick.emit($event)\"\n   [ngClass]=\"classes\"\n   [ngStyle]=\"{ 'background-color': backgroundColor }\"\n >\n   {{ label }}\n </button>",
-            "templateUrl": [],
+            "templateUrl": [
+                "./icon-basic.component.html"
+            ],
             "viewProviders": [],
-            "inputsClass": [
+            "inputsClass": [],
+            "outputsClass": [],
+            "propertiesClass": [
                 {
-                    "name": "backgroundColor",
+                    "name": "icons",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\n\nWhat background color to use\n",
-                    "description": "<p>What background color to use</p>\n",
-                    "line": 26,
-                    "type": "string",
-                    "decorators": []
+                    "type": "any",
+                    "optional": false,
+                    "description": "",
+                    "line": 8
                 },
                 {
-                    "name": "label",
-                    "defaultValue": "'Button'",
+                    "name": "rotate",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "jsdoctags": [
-                        {
-                            "pos": 711,
-                            "end": 724,
-                            "flags": 4227072,
-                            "modifierFlagsCache": 0,
-                            "transformFlags": 0,
-                            "kind": 325,
-                            "tagName": {
-                                "pos": 712,
-                                "end": 720,
-                                "flags": 4227072,
-                                "modifierFlagsCache": 0,
-                                "transformFlags": 0,
-                                "kind": 79,
-                                "escapedText": "required"
-                            },
-                            "comment": ""
-                        }
-                    ],
-                    "rawdescription": "\n\nButton contents\n\n",
-                    "description": "<p>Button contents</p>\n",
-                    "line": 40,
-                    "type": "string",
-                    "decorators": []
-                },
-                {
-                    "name": "primary",
-                    "defaultValue": "false",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "rawdescription": "\n\nIs this the principal call to action on the page?\n",
-                    "description": "<p>Is this the principal call to action on the page?</p>\n",
-                    "line": 20,
-                    "type": "boolean",
-                    "decorators": []
+                    "type": "number",
+                    "optional": false,
+                    "description": "<p>The number of degrees that the icon should be rotated. The following\nvalues are supported:\n30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330</p>\n",
+                    "line": 15,
+                    "rawdescription": "\n\nThe number of degrees that the icon should be rotated. The following\nvalues are supported:\n30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330\n"
                 },
                 {
                     "name": "size",
-                    "defaultValue": "'medium'",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\n\nHow large should the button be?\n",
-                    "description": "<p>How large should the button be?</p>\n",
-                    "line": 32,
-                    "type": "\"small\" | \"medium\" | \"large\"",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
+                    "type": "string",
+                    "optional": false,
+                    "description": "<p>Used to scale the icon up or down.\n&#39;xs&#39;, &#39;sm&#39;, &#39;lg&#39;, &#39;2x&#39;, &#39;3x&#39;, &#39;4x&#39;, &#39;5x&#39;, &#39;6x&#39;, &#39;7x&#39;, &#39;8x&#39;, &#39;9x&#39;, &#39;10x&#39;</p>\n",
+                    "line": 21,
+                    "rawdescription": "\n\nUsed to scale the icon up or down.\n'xs', 'sm', 'lg', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x'\n"
+                },
                 {
-                    "name": "onClick",
-                    "defaultValue": "new EventEmitter<Event>()",
+                    "name": "skew",
                     "deprecated": false,
                     "deprecationMessage": "",
-                    "rawdescription": "\n\nOptional click handler\n",
-                    "description": "<p>Optional click handler</p>\n",
-                    "line": 46,
-                    "type": "EventEmitter"
+                    "type": "Array<number>",
+                    "optional": false,
+                    "description": "<p>Used to skew icons, array of one or two numbers ranging inclusivly from\n-45 to 45 expected. If only one number provided, that skew value will be\napplied both horizontally and vertically.</p>\n",
+                    "line": 28,
+                    "rawdescription": "\n\nUsed to skew icons, array of one or two numbers ranging inclusivly from\n-45 to 45 expected. If only one number provided, that skew value will be\napplied both horizontally and vertically.\n"
                 }
             ],
-            "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
             "deprecationMessage": "",
@@ -270,103 +221,15 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\n\n@Component({\n  selector: 'storybook-button',\n  template: ` <button\n    type=\"button\"\n    (click)=\"onClick.emit($event)\"\n    [ngClass]=\"classes\"\n    [ngStyle]=\"{ 'background-color': backgroundColor }\"\n  >\n    {{ label }}\n  </button>`,\n  styleUrls: ['./button.css'],\n})\nexport default class ButtonComponent {\n  /**\n   * Is this the principal call to action on the page?\n   */\n  @Input()\n  primary = false;\n\n  /**\n   * What background color to use\n   */\n  @Input()\n  backgroundColor?: string;\n\n  /**\n   * How large should the button be?\n   */\n  @Input()\n  size: 'small' | 'medium' | 'large' = 'medium';\n\n  /**\n   * Button contents\n   *\n   * @required\n   */\n  @Input()\n  label = 'Button';\n\n  /**\n   * Optional click handler\n   */\n  @Output()\n  onClick = new EventEmitter<Event>();\n\n  public get classes(): string[] {\n    const mode = this.primary ? 'storybook-button--primary' : 'storybook-button--secondary';\n\n    return ['storybook-button', `storybook-button--${this.size}`, mode];\n  }\n}\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-icon-basic',\n  templateUrl: './icon-basic.component.html'\n})\nexport class IconBasicComponent {\n  icons:any\n\n  /**\n   * The number of degrees that the icon should be rotated. The following\n   * values are supported:\n   * 30, 45, 60, 90, 120, 135, 150, 180, 210, 225, 240, 270, 300, 315, 330\n   */\n  rotate: number;\n\n  /**\n   * Used to scale the icon up or down.\n   * 'xs', 'sm', 'lg', '2x', '3x', '4x', '5x', '6x', '7x', '8x', '9x', '10x'\n   */\n  size: string;\n\n  /**\n   * Used to skew icons, array of one or two numbers ranging inclusivly from\n   * -45 to 45 expected. If only one number provided, that skew value will be\n   * applied both horizontally and vertically.\n   */\n  skew: Array<number>;\n\n}\n",
             "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".storybook-button {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-weight: 700;\n  border: 0;\n  border-radius: 3em;\n  cursor: pointer;\n  display: inline-block;\n  line-height: 1;\n}\n.storybook-button--primary {\n  color: white;\n  background-color: #1ea7fd;\n}\n.storybook-button--secondary {\n  color: #333;\n  background-color: transparent;\n  box-shadow: rgba(0, 0, 0, 0.15) 0px 0px 0px 1px inset;\n}\n.storybook-button--small {\n  font-size: 12px;\n  padding: 10px 16px;\n}\n.storybook-button--medium {\n  font-size: 14px;\n  padding: 11px 20px;\n}\n.storybook-button--large {\n  font-size: 16px;\n  padding: 12px 24px;\n}\n",
-                    "styleUrl": "./button.css"
-                }
-            ],
+            "styleUrlsData": "",
             "stylesData": "",
-            "accessors": {
-                "classes": {
-                    "name": "classes",
-                    "getSignature": {
-                        "name": "classes",
-                        "type": "[]",
-                        "returnType": "string[]",
-                        "line": 48
-                    }
-                }
-            }
-        },
-        {
-            "name": "HeaderComponent",
-            "id": "component-HeaderComponent-0cd94fbc94a83702e45bf987cb3b3f9074d69cd27e6ca2e4fbac0dc5b5047bd4dc3a9ce8a77f6bd9ab7ae3e6ca8e49b34bed529ca0da0fa428fec544a0324870",
-            "file": "src/stories/header.component.ts",
-            "encapsulation": [],
-            "entryComponents": [],
-            "inputs": [],
-            "outputs": [],
-            "providers": [],
-            "selector": "storybook-header",
-            "styleUrls": [
-                "./header.css"
-            ],
-            "styles": [],
-            "template": "<header>    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          primary\n          size=\"small\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </header>",
-            "templateUrl": [],
-            "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "user",
-                    "defaultValue": "null",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 54,
-                    "type": "User | null",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onCreateAccount",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 63,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogin",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 57,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogout",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 60,
-                    "type": "EventEmitter"
-                }
-            ],
-            "propertiesClass": [],
-            "methodsClass": [],
-            "deprecated": false,
-            "deprecationMessage": "",
-            "hostBindings": [],
-            "hostListeners": [],
-            "description": "",
-            "rawdescription": "\n",
-            "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { User } from './User';\n\n@Component({\n  selector: 'storybook-header',\n  template: `<header>\n    <div class=\"wrapper\">\n      <div>\n        <svg width=\"32\" height=\"32\" viewBox=\"0 0 32 32\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M10 0h12a10 10 0 0110 10v12a10 10 0 01-10 10H10A10 10 0 010 22V10A10 10 0 0110 0z\"\n              fill=\"#FFF\"\n            />\n            <path\n              d=\"M5.3 10.6l10.4 6v11.1l-10.4-6v-11zm11.4-6.2l9.7 5.5-9.7 5.6V4.4z\"\n              fill=\"#555AB9\"\n            />\n            <path\n              d=\"M27.2 10.6v11.2l-10.5 6V16.5l10.5-6zM15.7 4.4v11L6 10l9.7-5.5z\"\n              fill=\"#91BAF8\"\n            />\n          </g>\n        </svg>\n        <h1>Acme</h1>\n      </div>\n      <div>\n        <storybook-button\n          *ngIf=\"user\"\n          size=\"small\"\n          (onClick)=\"onLogout.emit($event)\"\n          label=\"Log out\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          size=\"small\"\n          (onClick)=\"onLogin.emit($event)\"\n          label=\"Log in\"\n        ></storybook-button>\n        <storybook-button\n          *ngIf=\"!user\"\n          primary\n          size=\"small\"\n          (onClick)=\"onCreateAccount.emit($event)\"\n          label=\"Sign up\"\n        ></storybook-button>\n      </div>\n    </div>\n  </header>`,\n  styleUrls: ['./header.css'],\n})\nexport default class HeaderComponent {\n  @Input()\n  user: User | null = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n",
-            "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": ".wrapper {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  border-bottom: 1px solid rgba(0, 0, 0, 0.1);\n  padding: 15px 20px;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n}\n\nsvg {\n  display: inline-block;\n  vertical-align: top;\n}\n\nh1 {\n  font-weight: 900;\n  font-size: 20px;\n  line-height: 1;\n  margin: 6px 0 6px 10px;\n  display: inline-block;\n  vertical-align: top;\n}\n\nbutton + button {\n  margin-left: 10px;\n}\n",
-                    "styleUrl": "./header.css"
-                }
-            ],
-            "stylesData": ""
+            "templateData": "<style>\n  .single-icon-wrapper p {\n    margin: 0;\n    width: fit-content;\n    text-align: center;\n  }\n  .all-icon-wrapper{\n    display: flex;\n    flex-wrap:wrap;\n    justify-content: center;\n  }\n  .single-icon-wrapper{\n    display: flex;\n    padding: 1rem;\n    border: 1px solid black;\n    justify-content: center;\n    flex-direction: column;\n    align-items: center;\n  }\n  .all-library-wrapper{\n    display: flex;\n    flex-direction: column;\n    align-items: center;\n  }\n\n</style>\n<div class=\"all-library-wrapper\">\n  <ng-container *ngIf=\"icons.uswds.length > 0\">\n    <h1>USWDS Icons</h1>\n    <div class=\"all-icon-wrapper\">\n      <div *ngFor=\"let item of icons.uswds\" class=\"single-icon-wrapper\">\n        <usa-icon [icon]=\"item.lookup\" [rotate]=rotate [size]=size [skew]=\"skew ? skew : [0]\"></usa-icon>\n        <p>{{item.display}}</p>\n      </div>\n    </div>\n  <br>\n  </ng-container>\n  <ng-container *ngIf=\"icons.sds.length > 0\">\n    <h1>SDS Icons</h1>\n    <div class=\"all-icon-wrapper\">\n      <div *ngFor=\"let item of icons.sds\" class=\"single-icon-wrapper\">\n        <usa-icon [icon]=\"item.lookup\" [rotate]=rotate [size]=size [skew]=\"skew ? skew : [0]\"></usa-icon>\n        <p>{{item.display}}</p>\n      </div>\n    </div>\n  <br>\n  </ng-container>\n  <ng-container *ngIf=\"icons.bootstrap.length > 0\">\n    <h1>Bootstrap Icons</h1>\n    <div class=\"all-icon-wrapper\">\n      <div *ngFor=\"let item of icons.bootstrap\" class=\"single-icon-wrapper\">\n        <usa-icon [icon]=\"item.lookup\" [rotate]=rotate [size]=size [skew]=\"skew ? skew : [0]\"></usa-icon>\n        <p>{{item.display}}</p>\n      </div>\n    </div>\n  </ng-container>\n</div>\n"
         },
         {
             "name": "IconComponent",
-            "id": "component-IconComponent-327c03e32cd38300d9bfd44e6121d76ea6756b4817400d631f45d8be76c4cc29eb6da39064678d4ac4d119699dab48023e42f3b530881ec7133481d5e482baef",
+            "id": "component-IconComponent-b2051e15948a27a99060fcb938634c7479d4a4f8b202f842f59a759d2a3adb43808cefdab5cf831b9f2cd1c903a2b232b63a232b22022cd17caeee8d1870658f",
             "file": "projects/icons/src/lib/icon/icon.component.ts",
             "encapsulation": [],
             "entryComponents": [],
@@ -451,10 +314,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 10,
-                    "modifierKind": [
-                        121
-                    ]
+                    "line": 10
                 },
                 {
                     "name": "skewY",
@@ -464,10 +324,7 @@
                     "type": "number",
                     "optional": false,
                     "description": "",
-                    "line": 11,
-                    "modifierKind": [
-                        121
-                    ]
+                    "line": 11
                 }
             ],
             "methodsClass": [],
@@ -478,7 +335,7 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'usa-icon',\n  templateUrl: './icon.component.html',\n  styleUrls: ['./icon.component.scss']\n})\nexport class IconComponent{\n\n  private skewX: number = 0;\n  private skewY: number = 0;\n  iconClasses: string = '';\n\n  @Input() icon: string = '';\n  @Input() rotate: number = 0;\n  @Input() size: string = 'lg';\n  /**\n   * Classes to be applied to i-bs element\n   */\n  @Input()\n  set classes(classesToApply: Array<string>){\n    if(classesToApply){\n      this.iconClasses = classesToApply.join(', ')\n    }\n  };\n  /**\n   * Array of up to two numbers to indicate the degree value to skew icon. The first element determines the horizontal skewing. The second element determines the vertical skewing. The second element is optional. if it is not provided, 0 will be used.\n   */\n  @Input()\n  set skew(value: Array<number>){\n    this.skewX = value[0];\n    this.skewY = value[1] ? value[1] : 0;\n  }\n\n  get skewClass():string{\n    if(this.skewX || this.skewY){\n      return `skew-${this.skewX}-${this.skewY}`;\n    }\n    return '';\n  }\n\n}\n",
+            "sourceCode": "import { Component, Input } from '@angular/core';\n\n@Component({\n  selector: 'usa-icon',\n  templateUrl: './icon.component.html',\n  styleUrls: ['./icon.component.scss']\n})\nexport class IconComponent{\n\n  skewX: number = 0;\n  skewY: number = 0;\n  iconClasses: string = '';\n\n  @Input() icon: string = '';\n  @Input() rotate: number = 0;\n  @Input() size: string = 'lg';\n  /**\n   * Classes to be applied to i-bs element\n   */\n  @Input()\n  set classes(classesToApply: Array<string>){\n    if(classesToApply){\n      this.iconClasses = classesToApply.join(', ')\n    }\n  };\n  /**\n   * Array of up to two numbers to indicate the degree value to skew icon. The first element determines the horizontal skewing. The second element determines the vertical skewing. The second element is optional. if it is not provided, 0 will be used.\n   */\n  @Input()\n  set skew(value: Array<number>){\n    this.skewX = value[0];\n    this.skewY = value[1] ? value[1] : 0;\n  }\n\n  get skewClass():string{\n    if(this.skewX || this.skewY){\n      return `skew-${this.skewX}-${this.skewY}`;\n    }\n    return '';\n  }\n\n}\n",
             "assetsDirs": [],
             "styleUrlsData": [
                 {
@@ -565,59 +422,23 @@
             "templateData": "<ng-container>\n  <i-bs name={{icon}} class=\"rotate-{{rotate}} size-{{size}}\" aria-hidden=true role=\"img\" [ngClass]=\"[iconClasses, skewClass]\"></i-bs>\n</ng-container>\n"
         },
         {
-            "name": "PageComponent",
-            "id": "component-PageComponent-432c9ae0bcf6e2e1f46701f7565a67376cb10145b7d049c5fe930cf8f075c6e02e24151589750b18cbaa8266f7c61393b95c4d833fbfd71ee228904aa014349f",
-            "file": "src/stories/page.component.ts",
+            "name": "StackedIconBasicComponent",
+            "id": "component-StackedIconBasicComponent-25626370669669d5b5d877de9b8d0be40d33a4ee4393970c9c43847175349de011be05259fe8b158e426e0ad96009171568dce84691d218bb4d23102c571b0cd",
+            "file": "src/app/components/stacked-icon/stacked-icon-basic/stacked-icon-basic.component.ts",
             "encapsulation": [],
             "entryComponents": [],
             "inputs": [],
             "outputs": [],
             "providers": [],
-            "selector": "storybook-page",
-            "styleUrls": [
-                "./page.css"
-            ],
+            "selector": "app-stacked-icon-basic",
+            "styleUrls": [],
             "styles": [],
-            "template": "<article>    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"onLogout.emit($event)\"\n      (onLogin)=\"onLogin.emit($event)\"\n      (onCreateAccount)=\"onCreateAccount.emit($event)\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>",
-            "templateUrl": [],
+            "templateUrl": [
+                "./stacked-icon-basic.component.html"
+            ],
             "viewProviders": [],
-            "inputsClass": [
-                {
-                    "name": "user",
-                    "defaultValue": "null",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 65,
-                    "type": "User | null",
-                    "decorators": []
-                }
-            ],
-            "outputsClass": [
-                {
-                    "name": "onCreateAccount",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 74,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogin",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 68,
-                    "type": "EventEmitter"
-                },
-                {
-                    "name": "onLogout",
-                    "defaultValue": "new EventEmitter<Event>()",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "line": 71,
-                    "type": "EventEmitter"
-                }
-            ],
+            "inputsClass": [],
+            "outputsClass": [],
             "propertiesClass": [],
             "methodsClass": [],
             "deprecated": false,
@@ -627,15 +448,11 @@
             "description": "",
             "rawdescription": "\n",
             "type": "component",
-            "sourceCode": "import { Component, Input, Output, EventEmitter } from '@angular/core';\nimport { User } from './User';\n\n@Component({\n  selector: 'storybook-page',\n  template: `<article>\n    <storybook-header\n      [user]=\"user\"\n      (onLogout)=\"onLogout.emit($event)\"\n      (onLogin)=\"onLogin.emit($event)\"\n      (onCreateAccount)=\"onCreateAccount.emit($event)\"\n    ></storybook-header>\n    <section>\n      <h2>Pages in Storybook</h2>\n      <p>\n        We recommend building UIs with a\n        <a href=\"https://componentdriven.org\" target=\"_blank\" rel=\"noopener noreferrer\">\n          <strong>component-driven</strong>\n        </a>\n        process starting with atomic components and ending with pages.\n      </p>\n      <p>\n        Render pages with mock data. This makes it easy to build and review page states without\n        needing to navigate to them in your app. Here are some handy patterns for managing page data\n        in Storybook:\n      </p>\n      <ul>\n        <li>\n          Use a higher-level connected component. Storybook helps you compose such data from the\n          \"args\" of child component stories\n        </li>\n        <li>\n          Assemble data in the page component from your services. You can mock these services out\n          using Storybook.\n        </li>\n      </ul>\n      <p>\n        Get a guided tutorial on component-driven development at\n        <a href=\"https://storybook.js.org/tutorials/\" target=\"_blank\" rel=\"noopener noreferrer\">\n          Storybook tutorials\n        </a>\n        . Read more in the\n        <a href=\"https://storybook.js.org/docs\" target=\"_blank\" rel=\"noopener noreferrer\"> docs </a>\n        .\n      </p>\n      <div class=\"tip-wrapper\">\n        <span class=\"tip\">Tip</span> Adjust the width of the canvas with the\n        <svg width=\"10\" height=\"10\" viewBox=\"0 0 12 12\" xmlns=\"http://www.w3.org/2000/svg\">\n          <g fill=\"none\" fillRule=\"evenodd\">\n            <path\n              d=\"M1.5 5.2h4.8c.3 0 .5.2.5.4v5.1c-.1.2-.3.3-.4.3H1.4a.5.5 0 01-.5-.4V5.7c0-.3.2-.5.5-.5zm0-2.1h6.9c.3 0 .5.2.5.4v7a.5.5 0 01-1 0V4H1.5a.5.5 0 010-1zm0-2.1h9c.3 0 .5.2.5.4v9.1a.5.5 0 01-1 0V2H1.5a.5.5 0 010-1zm4.3 5.2H2V10h3.8V6.2z\"\n              id=\"a\"\n              fill=\"#999\"\n            />\n          </g>\n        </svg>\n        Viewports addon in the toolbar\n      </div>\n    </section>\n  </article>`,\n  styleUrls: ['./page.css'],\n})\nexport default class PageComponent {\n  @Input()\n  user: User | null = null;\n\n  @Output()\n  onLogin = new EventEmitter<Event>();\n\n  @Output()\n  onLogout = new EventEmitter<Event>();\n\n  @Output()\n  onCreateAccount = new EventEmitter<Event>();\n}\n\n// export const Page = ({ user, onLogin, onLogout, onCreateAccount }) => (\n//   <article>\n//     <Header user={user} onLogin={onLogin} onLogout={onLogout} onCreateAccount={onCreateAccount} />\n\n// );\n// Page.propTypes = {\n//   user: PropTypes.shape({}),\n//   onLogin: PropTypes.func.isRequired,\n//   onLogout: PropTypes.func.isRequired,\n//   onCreateAccount: PropTypes.func.isRequired,\n// };\n\n// Page.defaultProps = {\n//   user: null,\n// };\n",
+            "sourceCode": "import { Component } from '@angular/core';\n\n@Component({\n  selector: 'app-stacked-icon-basic',\n  templateUrl: './stacked-icon-basic.component.html',\n})\nexport class StackedIconBasicComponent{\n\n}\n",
             "assetsDirs": [],
-            "styleUrlsData": [
-                {
-                    "data": "section {\n  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;\n  font-size: 14px;\n  line-height: 24px;\n  padding: 48px 20px;\n  margin: 0 auto;\n  max-width: 600px;\n  color: #333;\n}\n\nsection h2 {\n  font-weight: 900;\n  font-size: 32px;\n  line-height: 1;\n  margin: 0 0 4px;\n  display: inline-block;\n  vertical-align: top;\n}\n\nsection p {\n  margin: 1em 0;\n}\n\nsection a {\n  text-decoration: none;\n  color: #1ea7fd;\n}\n\nsection ul {\n  padding-left: 30px;\n  margin: 1em 0;\n}\n\nsection li {\n  margin-bottom: 8px;\n}\n\nsection .tip {\n  display: inline-block;\n  border-radius: 1em;\n  font-size: 11px;\n  line-height: 12px;\n  font-weight: 700;\n  background: #e7fdd8;\n  color: #66bf3c;\n  padding: 4px 12px;\n  margin-right: 10px;\n  vertical-align: top;\n}\n\nsection .tip-wrapper {\n  font-size: 13px;\n  line-height: 20px;\n  margin-top: 40px;\n  margin-bottom: 40px;\n}\n\nsection .tip-wrapper svg {\n  display: inline-block;\n  height: 12px;\n  width: 12px;\n  margin-right: 4px;\n  vertical-align: top;\n  margin-top: 3px;\n}\n\nsection .tip-wrapper svg path {\n  fill: #1ea7fd;\n}\n",
-                    "styleUrl": "./page.css"
-                }
-            ],
-            "stylesData": ""
+            "styleUrlsData": "",
+            "stylesData": "",
+            "templateData": "<style>\n  .text-base-lightest{\n    color: #F9F9F6;\n  }\n  .text-warning{\n    color: #ffbe2e;\n  }\n  .text-secondary-dark{\n    color: #1a4480;\n  }\n</style>\n\n<div style=\"display: flex; align-items: flex-end\">\n  <div style=\"padding-right: 1em; text-align: center;\">\n    <usa-stacked-icon [size]=\"'sm'\">\n      <usa-icon class=\"usa-stack-icon\" [size]=\"'2x'\" [icon]=\"'square-fill'\"></usa-icon>\n      <usa-icon class=\"usa-stack-icon text-base-lightest\" [size]=\"'lg'\" [icon]=\"'hand-thumbs-down'\"></usa-icon>\n    </usa-stacked-icon>\n    <p>sm</p>\n  </div>\n  <div style=\"padding-right: 1em; text-align: center;\">\n    <usa-stacked-icon [size]=\"'2x'\">\n      <usa-icon class=\"usa-stack-icon\" [size]=\"'2x'\" [icon]=\"'circle-fill'\"></usa-icon>\n      <usa-icon class=\"usa-stack-icon text-warning\" [size]=\"'lg'\" [icon]=\"'cone'\"></usa-icon>\n    </usa-stacked-icon>\n    <p>2x</p>\n  </div>\n  <div style=\"padding-right: 1em; text-align: center;\">\n    <usa-stacked-icon [size]=\"'4x'\">\n      <usa-icon class=\"usa-stack-icon text-secondary-dark\" [size]=\"'2x'\" [icon]=\"'diamond-fill'\"></usa-icon>\n      <usa-icon class=\"usa-stack-icon text-base-lightest\" [size]=\"'lg'\" [icon]=\"'diamond'\"></usa-icon>\n    </usa-stacked-icon>\n    <p>4x</p>\n  </div>\n"
         },
         {
             "name": "StackedIconComponent",
@@ -698,13 +515,13 @@
     "modules": [
         {
             "name": "AppModule",
-            "id": "module-AppModule-e462c394ddb2b9bd52d4b810ffcecf6b98bada20bac69c7d8b2835b8f057b49ae3541869c1310b11d965a98141daeca4edfe1f1e3aa23f8c82aec89db8ed86f3",
+            "id": "module-AppModule-93a53701014ea61d24720b4b068d1407dbcf32d12908b1ed8ab13c8fe366db2192c7856c917f182a2b1c597ce76be3982f6397a790da4268f88fb027869a8449",
             "description": "",
             "deprecationMessage": "",
             "deprecated": false,
             "file": "src/app/app.module.ts",
             "methods": [],
-            "sourceCode": "import { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { IconModule, StackedIconModule } from 'projects/icons/src/public-api';\nimport { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';\nimport { allIcons as sdsIcons } from 'projects/icons/src/public-api';\nimport { uswdsAllIcons } from 'projects/icons/src/public-api';\nimport { CommonModule } from '@angular/common';\nimport * as _ from 'lodash';\n\nexport const appendPrefix = (iconsObject, prefix): object => {\n  const a = {};\n  Object.keys(iconsObject).forEach(key => {\n    a[`${prefix}${_.upperFirst(key)}`] = iconsObject[key];\n  });\n  return a;\n};\n\n@NgModule({\n  declarations: [\n    AppComponent\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule,\n    IconModule,\n    StackedIconModule,\n    NgxBootstrapIconsModule.pick(Object.assign(\n      {},\n      _.cloneDeep(allIcons),\n      appendPrefix(_.cloneDeep(sdsIcons), 'sds'),\n      _.cloneDeep(uswdsAllIcons),\n    )),\n    CommonModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n\n",
+            "sourceCode": "import { BrowserModule } from '@angular/platform-browser';\nimport { NgModule } from '@angular/core';\n\nimport { AppRoutingModule } from './app-routing.module';\nimport { AppComponent } from './app.component';\nimport { IconModule, StackedIconModule } from 'projects/icons/src/public-api';\nimport { NgxBootstrapIconsModule, allIcons } from 'ngx-bootstrap-icons';\nimport { allIcons as sdsIcons } from 'projects/icons/src/public-api';\nimport { uswdsAllIcons } from 'projects/icons/src/public-api';\nimport { CommonModule } from '@angular/common';\nimport * as _ from 'lodash';\nimport { IconBasicModule } from './components/icon/icon-basic/icon-basic.module';\nimport { StackedIconBasicModule } from './components/stacked-icon/stacked-icon-basic/stacked-icon-basic.module';\n\nexport const appendPrefix = (iconsObject, prefix): object => {\n  const a = {};\n  Object.keys(iconsObject).forEach(key => {\n    a[`${prefix}${_.upperFirst(key)}`] = iconsObject[key];\n  });\n  return a;\n};\n\n@NgModule({\n  declarations: [\n    AppComponent\n  ],\n  imports: [\n    BrowserModule,\n    AppRoutingModule,\n    IconModule,\n    StackedIconModule,\n    NgxBootstrapIconsModule.pick(Object.assign(\n      {},\n      _.cloneDeep(allIcons),\n      appendPrefix(_.cloneDeep(sdsIcons), 'sds'),\n      _.cloneDeep(uswdsAllIcons),\n    )),\n    CommonModule,\n    IconBasicModule,\n    StackedIconBasicModule\n  ],\n  providers: [],\n  bootstrap: [AppComponent]\n})\nexport class AppModule { }\n\n",
             "children": [
                 {
                     "type": "providers",
@@ -725,7 +542,13 @@
                             "name": "AppRoutingModule"
                         },
                         {
+                            "name": "IconBasicModule"
+                        },
+                        {
                             "name": "IconModule"
+                        },
+                        {
+                            "name": "StackedIconBasicModule"
                         },
                         {
                             "name": "StackedIconModule"
@@ -787,6 +610,54 @@
             ]
         },
         {
+            "name": "IconBasicModule",
+            "id": "module-IconBasicModule-2ea8059b8cbfebe9af7bab2143fbbca7d14a5115f523fb560bd753183574bab3c41335279b3600a729375d63696d17eb1cd148c24affe9f1ecb5f545051d7ea8",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/components/icon/icon-basic/icon-basic.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { IconBasicComponent } from './icon-basic.component';\nimport { IconModule } from 'projects/icons/src/public-api';\n\n\n\n@NgModule({\n  declarations: [IconBasicComponent],\n  exports: [IconBasicComponent],\n  imports: [\n    CommonModule,\n    IconModule\n  ]\n})\nexport class IconBasicModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "IconBasicComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "IconModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": [
+                        {
+                            "name": "IconBasicComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
             "name": "IconModule",
             "id": "module-IconModule-d14c2412985c2da864247f7eea0d82f6eb9d4121dd5e1ede8d92bb359f72f0200b729110d25140b9b4c8f2e9c65d5b21ded484df654d4f23d378b349202bf13b",
             "description": "",
@@ -819,6 +690,53 @@
                             "name": "IconComponent"
                         }
                     ]
+                },
+                {
+                    "type": "bootstrap",
+                    "elements": []
+                },
+                {
+                    "type": "classes",
+                    "elements": []
+                }
+            ]
+        },
+        {
+            "name": "StackedIconBasicModule",
+            "id": "module-StackedIconBasicModule-25869f19a4bbaed12119f99ec3b0b31abaddf0cf16ed6b25ac1cb4f190f922ee6f27baebbb1aeb07782e3b49dd922c90e451f0f2ceebaa7027db4dad0e8a16cb",
+            "description": "",
+            "deprecationMessage": "",
+            "deprecated": false,
+            "file": "src/app/components/stacked-icon/stacked-icon-basic/stacked-icon-basic.module.ts",
+            "methods": [],
+            "sourceCode": "import { NgModule } from '@angular/core';\nimport { CommonModule } from '@angular/common';\nimport { StackedIconBasicComponent } from './stacked-icon-basic.component';\nimport { IconModule, StackedIconModule } from 'projects/icons/src/public-api';\n\n\n\n@NgModule({\n  declarations: [\n    StackedIconBasicComponent\n  ],\n  imports: [\n    CommonModule,\n    IconModule,\n    StackedIconModule\n  ]\n})\nexport class StackedIconBasicModule { }\n",
+            "children": [
+                {
+                    "type": "providers",
+                    "elements": []
+                },
+                {
+                    "type": "declarations",
+                    "elements": [
+                        {
+                            "name": "StackedIconBasicComponent"
+                        }
+                    ]
+                },
+                {
+                    "type": "imports",
+                    "elements": [
+                        {
+                            "name": "IconModule"
+                        },
+                        {
+                            "name": "StackedIconModule"
+                        }
+                    ]
+                },
+                {
+                    "type": "exports",
+                    "elements": []
                 },
                 {
                     "type": "bootstrap",
@@ -1038,14 +956,24 @@
                 "defaultValue": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi sds-bars\\\" viewBox=\\\"0 0 448 512\\\">\\n  <path d=\\\"M1.25,264.5c0-10.251,8.311-18.562,18.562-18.562h259.875c10.261,0,18.561,8.311,18.561,18.562c0,10.258-8.3,18.563-18.561,18.563H19.812C9.561,283.063,1.25,274.758,1.25,264.5z M428.188,394.438H19.812c-10.251,0-18.562,8.301-18.562,18.562c0,10.262,8.311,18.563,18.562,18.563h408.375c10.26,0,18.562-8.302,18.562-18.563C446.75,402.738,438.447,394.438,428.188,394.438z M353.937,97.438H182.082h-13.86H19.812c-10.251,0-18.562,8.302-18.562,18.562c0,10.262,8.311,18.563,18.562,18.563h148.41h13.86h171.855c10.263,0,18.565-8.302,18.565-18.563C372.502,105.739,364.199,97.438,353.937,97.438z\\\"/>\\n</svg>\""
             },
             {
-                "name": "BasicIcons",
+                "name": "Basic",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/icon.stories.ts",
+                "file": "src/app/components/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "SingleIconTemplate.bind({})"
+            },
+            {
+                "name": "Basic",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "bell",
@@ -1081,7 +1009,7 @@
                 "name": "bootstrapSelected",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/icon.stories.ts",
+                "file": "src/app/components/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1091,7 +1019,7 @@
                 "name": "buildIconList",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/icon.stories.ts",
+                "file": "src/app/components/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1211,7 +1139,7 @@
                 "name": "degCorrection",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/icon.stories.ts",
+                "file": "src/app/components/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1391,7 +1319,7 @@
                 "name": "filterResults",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/icon.stories.ts",
+                "file": "src/app/components/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1401,7 +1329,7 @@
                 "name": "fixDisplayName",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/icon.stories.ts",
+                "file": "src/app/components/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1471,11 +1399,11 @@
                 "name": "iconTemplate",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/icon.stories.ts",
+                "file": "src/app/components/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "require('!!raw-loader!./icon.html')"
+                "defaultValue": "require('!!raw-loader!./icon-basic/icon-basic.component.html')"
             },
             {
                 "name": "informationCircle",
@@ -1498,16 +1426,6 @@
                 "defaultValue": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi sds-invoice\\\" viewBox=\\\"0 0 448 512\\\">\\n  <path d=\\\"M521.22,423.72H464.14V61.89A61.7,61.7,0,0,0,402.62,0h-337q-2.09,0-4.38,0h-.06L60.16,0A60.33,60.33,0,0,0,0,60.5V97.1a8.8,8.8,0,0,0,8.78,8.83h94.43c0,16.22,0,37.64,0,83.91V451.59C103.2,485.3,128.14,512,161,512H451c43.63,0,79-35.57,79-79.45A8.8,8.8,0,0,0,521.22,423.72ZM102.77,88.28H17.56V60.5A42.56,42.56,0,0,1,95.24,36.18c3.74,6,6.24,13.44,7.49,22.4,0,.64,0,1.28,0,1.92Zm18,363.31V62.22c-.14-1.56-.31-3.08-.5-4.58a60.39,60.39,0,0,0-10.54-31.43,55.7,55.7,0,0,0-6.66-8.53H402.62a44.09,44.09,0,0,1,44,44.21V423.72H219.31a8.8,8.8,0,0,0-8.78,8.83v17.8a43.87,43.87,0,0,1-43.75,44H161C138.09,494.34,120.76,475.79,120.76,451.59ZM451,494.34H209.73a61.64,61.64,0,0,0,18.36-44v-9H511.82A61.57,61.57,0,0,1,451,494.34Zm-224.85-291A41,41,0,0,1,267,162.3h7.77v-7.8a8.44,8.44,0,1,1,16.88,0v7.8h32.07a8.49,8.49,0,0,1,0,17H267a24.11,24.11,0,0,0,0,48.21h32.41a41.08,41.08,0,0,1,0,82.16h-7.77v7.79a8.44,8.44,0,1,1-16.88,0v-7.79H242.69a8.49,8.49,0,0,1,0-17h56.72a24.11,24.11,0,0,0,0-48.21H267A41,41,0,0,1,226.15,203.38Z\\\"/>\\n</svg>\""
             },
             {
-                "name": "Large",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "leaf",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1526,46 +1444,6 @@
                 "deprecationMessage": "",
                 "type": "string",
                 "defaultValue": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi sds-link\\\" viewBox=\\\"0 0 512 512\\\">\\n  <path d=\\\"M182.47,441.71a80,80,0,0,1-65.42-125.87l55.06-78.63a16,16,0,0,1,26.22,18.36L143.27,334.2a48,48,0,1,0,78.63,55.07L277,310.62A16,16,0,0,1,303.18,329l-55.06,78.64A80,80,0,0,1,182.47,441.71ZM339.89,276.56,395,197.92a80,80,0,0,0-131.07-91.78l-55.06,78.64A16,16,0,1,0,235,203.14L290.1,124.5a48,48,0,1,1,78.63,55.06L313.67,258.2a16,16,0,0,0,26.22,18.36Zm-116.66,55L315,200.53a16,16,0,0,0-26.22-18.36L197,313.23a16,16,0,0,0,26.22,18.36Z\\\"/>\\n</svg>\""
-            },
-            {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedIn",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "LoggedOut",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "logIn",
@@ -1658,6 +1536,46 @@
                 "defaultValue": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi sds-open-doors\\\" viewBox=\\\"0 0 517.2 512\\\">\\n  <path d=\\\"M145.2,196.3h17.1V307.2H145.2ZM511.5,5.5c-.1-.2-.1-.4-.2-.6a6.34,6.34,0,0,0-1.6-2.3c-.1-.1-.3-.2-.4-.4a6.47,6.47,0,0,0-.9-.8,3.38,3.38,0,0,0-1.2-.6.76.76,0,0,0-.4-.2,7.17,7.17,0,0,0-2.9-.6c-.1,0-.2-.1-.3-.1H8.7c-.1.1-.2.2-.3.2A7.17,7.17,0,0,0,5.5.7a.52.52,0,0,0-.4.2,5.17,5.17,0,0,0-1.3.6,6.47,6.47,0,0,0-.9.8l-.4.4A7,7,0,0,0,1,5l-.3.6a9.41,9.41,0,0,0-.6,3V503.5a8,8,0,0,0,.6,3c.1.2.1.4.2.6a6.34,6.34,0,0,0,1.6,2.3c.1.1.3.2.4.4a6.47,6.47,0,0,0,.9.8c.3.2.7.3,1,.5a3.55,3.55,0,0,0,.9.4,10.66,10.66,0,0,0,3,.6H503.6a8,8,0,0,0,3-.6c.3-.1.6-.3.9-.4s.7-.3,1-.5a6.47,6.47,0,0,0,.9-.8c.1-.1.3-.2.4-.4a8.68,8.68,0,0,0,1.6-2.3c.1-.2.1-.4.2-.6a10.47,10.47,0,0,0,.5-3V8.5A8,8,0,0,0,511.5,5.5ZM17.2,20.9,179.3,82.7V429.3L17.2,491.1ZM55,495l135.9-51.8a8.56,8.56,0,0,0,5.5-8V76.8a8.67,8.67,0,0,0-5.5-8L55,17.1H457.2L321.4,68.8a8.56,8.56,0,0,0-5.5,8V435.2a8.67,8.67,0,0,0,5.5,8L457.3,495Zm440-3.9L332.9,429.3V82.7L495,20.9ZM350,204.8h17.1V315.7H350ZM247.6,179.2h17.1v17.1H247.6Zm41.62,25.57,12.09-12.09,12.1,12.09-12.1,12.09Zm-87.85.11,12.09-12.09,12.09,12.09L213.46,217Zm53.13-.28a38.83,38.83,0,0,0-23.4,69.8V321a7.81,7.81,0,0,0,7.8,7.8h7.8v7.8h15.5v-7.8H270a7.81,7.81,0,0,0,7.8-7.8V274.3a38.72,38.72,0,0,0-23.3-69.7Zm7.7,108.7H246.7V297.8h15.5Zm3.8-49.8a7.73,7.73,0,0,0-3.9,6.7v12.1H246.6V270.2a7.73,7.73,0,0,0-3.9-6.7,23.07,23.07,0,0,1-11.7-20,23.35,23.35,0,0,1,46.7,0A23,23,0,0,1,266,263.5Z\\\"/>\\n</svg>\""
             },
             {
+                "name": "Overview",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  template: overviewTemplate.default,\n  props: {},\n})"
+            },
+            {
+                "name": "Overview",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "() => ({\n  template: overviewTemplate.default,\n  props: {},\n})"
+            },
+            {
+                "name": "overviewTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/icon/icon.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require('!!raw-loader!./icon-overview/icon-overview.component.html')"
+            },
+            {
+                "name": "overviewTemplate",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": "",
+                "defaultValue": "require('!!raw-loader!./stacked-icon-overview/stacked-icon-overview.component.html')"
+            },
+            {
                 "name": "paperPlane",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1706,26 +1624,6 @@
                 "deprecationMessage": "",
                 "type": "string",
                 "defaultValue": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi sds-photo-alt\\\" viewBox=\\\"0 0 512 512\\\">\\n  <path d=\\\"M440,48H144a24,24,0,0,0-24,24v40H72a24,24,0,0,0-24,24V440a24,24,0,0,0,24,24H376a24,24,0,0,0,24-24V392h40a24,24,0,0,0,24-24V72A24,24,0,0,0,440,48Zm-72,96V346.55l-63.58-60.82a26.85,26.85,0,0,0-40-2.43l-50.67,48.87-22.49-21.51a23.82,23.82,0,0,0-33.39.2L80,387.22V144ZM271.84,432H80l94.73-92.86Zm46.3,0-81.22-77.69,46.25-44.62L368,390.84V432ZM432,360H400V136a24,24,0,0,0-24-24H152V80H432Z\\\"/>\\n</svg>\""
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
-                "name": "Primary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/stacked-icons.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "print",
@@ -1796,6 +1694,15 @@
                 "type": "literal type"
             },
             {
+                "name": "require",
+                "ctype": "miscellaneous",
+                "subtype": "variable",
+                "file": "src/app/shared/sandbox/sandbox-utils.ts",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "type": ""
+            },
+            {
                 "name": "reset",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1829,7 +1736,7 @@
                 "name": "sdsSelected",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/icon.stories.ts",
+                "file": "src/app/components/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -1856,16 +1763,6 @@
                 "defaultValue": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi sds-search-circle\\\" viewBox=\\\"0 0 512 512\\\">\\n  <path d=\\\"M256,0C114.62,0,0,114.62,0,256S114.62,512,256,512,512,397.38,512,256,397.38,0,256,0Zm0,497.48C122.64,497.48,14.52,389.36,14.52,256S122.64,14.52,256,14.52,497.48,122.64,497.48,256,389.36,497.48,256,497.48ZM409.1,359.81l-144-118a92.41,92.41,0,1,0-10.78,13.84L398,373.38a8.79,8.79,0,0,0,12.34-1.22h0A8.8,8.8,0,0,0,409.1,359.81ZM197.88,270.15a78.7,78.7,0,1,1,67.17-88.75A78.71,78.71,0,0,1,197.88,270.15Z\\\"/>\\n</svg>\""
             },
             {
-                "name": "Secondary",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
-            },
-            {
                 "name": "share",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
@@ -1889,21 +1786,11 @@
                 "name": "SingleIconTemplate",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/icon.stories.ts",
+                "file": "src/app/components/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
                 "defaultValue": "(args) => {\n  const searchTerm = args.search;\n  buildIconList(args.library)\n  return {\n    props: {\n      ...args,\n      icons: {\n        uswds: uswdsSelected ? filterResults(Object.keys(uswdsAllIcons), searchTerm).map(icon => ({display: fixDisplayName(icon), lookup: icon})) : [],\n        sds: sdsSelected ? filterResults(Object.keys(appendPrefix(sdsIcons, 'sds')), searchTerm).map(icon => ({display: fixDisplayName(icon, true), lookup: icon})) : [],\n        bootstrap: bootstrapSelected ? filterResults(Object.keys(allIcons), searchTerm).map(icon => ({display: fixDisplayName(icon), lookup: icon})) : []\n      }\n    },\n    template: iconTemplate.default\n  }\n}"
-            },
-            {
-                "name": "Small",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "",
-                "defaultValue": "Template.bind({})"
             },
             {
                 "name": "stackblitz",
@@ -1919,11 +1806,11 @@
                 "name": "stackedIconTemplate",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/stacked-icons.stories.ts",
+                "file": "src/app/components/stacked-icon/stacked-icons.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
-                "defaultValue": "require('!!raw-loader!./stacked-icons.html')"
+                "defaultValue": "require('!!raw-loader!./stacked-icon-basic/stacked-icon-basic.component.html')"
             },
             {
                 "name": "star",
@@ -1959,41 +1846,11 @@
                 "name": "Template",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/Button.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Button>",
-                "defaultValue": "(args: Button) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Header.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Header>",
-                "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/Page.stories.ts",
-                "deprecated": false,
-                "deprecationMessage": "",
-                "type": "Story<Page>",
-                "defaultValue": "(args: Page) => ({\n  props: args,\n})"
-            },
-            {
-                "name": "Template",
-                "ctype": "miscellaneous",
-                "subtype": "variable",
-                "file": "src/stories/stacked-icons.stories.ts",
+                "file": "src/app/components/stacked-icon/stacked-icons.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "Story",
-                "defaultValue": "(args) => {\n  console.log('inside template function')\n  return {\n    props: {\n      ...args\n    },\n    template: stackedIconTemplate.default\n  }\n}"
+                "defaultValue": "(args) => {\n  return {\n    props: {\n      ...args\n    },\n    template: stackedIconTemplate.default\n  }\n}"
             },
             {
                 "name": "thumbDown",
@@ -3999,7 +3856,7 @@
                 "name": "uswdsSelected",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/icon.stories.ts",
+                "file": "src/app/components/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -4569,7 +4426,7 @@
                 "name": "xByXCorrection",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/icon.stories.ts",
+                "file": "src/app/components/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
@@ -4579,14 +4436,73 @@
                 "name": "xKCorrection",
                 "ctype": "miscellaneous",
                 "subtype": "variable",
-                "file": "src/stories/icon.stories.ts",
+                "file": "src/app/components/icon/icon.stories.ts",
                 "deprecated": false,
                 "deprecationMessage": "",
                 "type": "",
                 "defaultValue": "(possibleXKString: string) => {\n  return possibleXKString.replace(/(\\d)-k(-?)/, '$1k$2')\n}"
             }
         ],
-        "functions": [],
+        "functions": [
+            {
+                "name": "generateConfig",
+                "file": "src/app/shared/sandbox/sandbox-utils.ts",
+                "ctype": "miscellaneous",
+                "subtype": "function",
+                "deprecated": false,
+                "deprecationMessage": "",
+                "description": "",
+                "args": [
+                    {
+                        "name": "filePath",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "moduleName",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    },
+                    {
+                        "name": "selector",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": ""
+                    }
+                ],
+                "jsdoctags": [
+                    {
+                        "name": "filePath",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "moduleName",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    },
+                    {
+                        "name": "selector",
+                        "type": "string",
+                        "deprecated": false,
+                        "deprecationMessage": "",
+                        "tagName": {
+                            "text": "param"
+                        }
+                    }
+                ]
+            }
+        ],
         "typealiases": [],
         "enumerations": [],
         "groupedVariables": {
@@ -4782,12 +4698,12 @@
                     "defaultValue": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi sds-bars\\\" viewBox=\\\"0 0 448 512\\\">\\n  <path d=\\\"M1.25,264.5c0-10.251,8.311-18.562,18.562-18.562h259.875c10.261,0,18.561,8.311,18.561,18.562c0,10.258-8.3,18.563-18.561,18.563H19.812C9.561,283.063,1.25,274.758,1.25,264.5z M428.188,394.438H19.812c-10.251,0-18.562,8.301-18.562,18.562c0,10.262,8.311,18.563,18.562,18.563h408.375c10.26,0,18.562-8.302,18.562-18.563C446.75,402.738,438.447,394.438,428.188,394.438z M353.937,97.438H182.082h-13.86H19.812c-10.251,0-18.562,8.302-18.562,18.562c0,10.262,8.311,18.563,18.562,18.563h148.41h13.86h171.855c10.263,0,18.565-8.302,18.565-18.563C372.502,105.739,364.199,97.438,353.937,97.438z\\\"/>\\n</svg>\""
                 }
             ],
-            "src/stories/icon.stories.ts": [
+            "src/app/components/icon/icon.stories.ts": [
                 {
-                    "name": "BasicIcons",
+                    "name": "Basic",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/icon.stories.ts",
+                    "file": "src/app/components/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -4797,7 +4713,7 @@
                     "name": "bootstrapSelected",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/icon.stories.ts",
+                    "file": "src/app/components/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -4807,7 +4723,7 @@
                     "name": "buildIconList",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/icon.stories.ts",
+                    "file": "src/app/components/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -4817,7 +4733,7 @@
                     "name": "degCorrection",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/icon.stories.ts",
+                    "file": "src/app/components/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -4827,7 +4743,7 @@
                     "name": "filterResults",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/icon.stories.ts",
+                    "file": "src/app/components/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -4837,7 +4753,7 @@
                     "name": "fixDisplayName",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/icon.stories.ts",
+                    "file": "src/app/components/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -4847,17 +4763,37 @@
                     "name": "iconTemplate",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/icon.stories.ts",
+                    "file": "src/app/components/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
-                    "defaultValue": "require('!!raw-loader!./icon.html')"
+                    "defaultValue": "require('!!raw-loader!./icon-basic/icon-basic.component.html')"
+                },
+                {
+                    "name": "Overview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  template: overviewTemplate.default,\n  props: {},\n})"
+                },
+                {
+                    "name": "overviewTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/icon/icon.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require('!!raw-loader!./icon-overview/icon-overview.component.html')"
                 },
                 {
                     "name": "sdsSelected",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/icon.stories.ts",
+                    "file": "src/app/components/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -4867,7 +4803,7 @@
                     "name": "SingleIconTemplate",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/icon.stories.ts",
+                    "file": "src/app/components/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "Story",
@@ -4877,7 +4813,7 @@
                     "name": "uswdsSelected",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/icon.stories.ts",
+                    "file": "src/app/components/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -4887,7 +4823,7 @@
                     "name": "xByXCorrection",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/icon.stories.ts",
+                    "file": "src/app/components/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
@@ -4897,11 +4833,63 @@
                     "name": "xKCorrection",
                     "ctype": "miscellaneous",
                     "subtype": "variable",
-                    "file": "src/stories/icon.stories.ts",
+                    "file": "src/app/components/icon/icon.stories.ts",
                     "deprecated": false,
                     "deprecationMessage": "",
                     "type": "",
                     "defaultValue": "(possibleXKString: string) => {\n  return possibleXKString.replace(/(\\d)-k(-?)/, '$1k$2')\n}"
+                }
+            ],
+            "src/app/components/stacked-icon/stacked-icons.stories.ts": [
+                {
+                    "name": "Basic",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "Template.bind({})"
+                },
+                {
+                    "name": "Overview",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "() => ({\n  template: overviewTemplate.default,\n  props: {},\n})"
+                },
+                {
+                    "name": "overviewTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require('!!raw-loader!./stacked-icon-overview/stacked-icon-overview.component.html')"
+                },
+                {
+                    "name": "stackedIconTemplate",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "",
+                    "defaultValue": "require('!!raw-loader!./stacked-icon-basic/stacked-icon-basic.component.html')"
+                },
+                {
+                    "name": "Template",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": "Story",
+                    "defaultValue": "(args) => {\n  return {\n    props: {\n      ...args\n    },\n    template: stackedIconTemplate.default\n  }\n}"
                 }
             ],
             "projects/icons/src/lib/custom-icons/sdsBell.ts": [
@@ -5390,58 +5378,6 @@
                     "defaultValue": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi sds-invoice\\\" viewBox=\\\"0 0 448 512\\\">\\n  <path d=\\\"M521.22,423.72H464.14V61.89A61.7,61.7,0,0,0,402.62,0h-337q-2.09,0-4.38,0h-.06L60.16,0A60.33,60.33,0,0,0,0,60.5V97.1a8.8,8.8,0,0,0,8.78,8.83h94.43c0,16.22,0,37.64,0,83.91V451.59C103.2,485.3,128.14,512,161,512H451c43.63,0,79-35.57,79-79.45A8.8,8.8,0,0,0,521.22,423.72ZM102.77,88.28H17.56V60.5A42.56,42.56,0,0,1,95.24,36.18c3.74,6,6.24,13.44,7.49,22.4,0,.64,0,1.28,0,1.92Zm18,363.31V62.22c-.14-1.56-.31-3.08-.5-4.58a60.39,60.39,0,0,0-10.54-31.43,55.7,55.7,0,0,0-6.66-8.53H402.62a44.09,44.09,0,0,1,44,44.21V423.72H219.31a8.8,8.8,0,0,0-8.78,8.83v17.8a43.87,43.87,0,0,1-43.75,44H161C138.09,494.34,120.76,475.79,120.76,451.59ZM451,494.34H209.73a61.64,61.64,0,0,0,18.36-44v-9H511.82A61.57,61.57,0,0,1,451,494.34Zm-224.85-291A41,41,0,0,1,267,162.3h7.77v-7.8a8.44,8.44,0,1,1,16.88,0v7.8h32.07a8.49,8.49,0,0,1,0,17H267a24.11,24.11,0,0,0,0,48.21h32.41a41.08,41.08,0,0,1,0,82.16h-7.77v7.79a8.44,8.44,0,1,1-16.88,0v-7.79H242.69a8.49,8.49,0,0,1,0-17h56.72a24.11,24.11,0,0,0,0-48.21H267A41,41,0,0,1,226.15,203.38Z\\\"/>\\n</svg>\""
                 }
             ],
-            "src/stories/Button.stories.ts": [
-                {
-                    "name": "Large",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Secondary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Small",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Button.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Button>",
-                    "defaultValue": "(args: Button) => ({\n  props: args,\n})"
-                }
-            ],
             "projects/icons/src/lib/custom-icons/sdsLeaf.ts": [
                 {
                     "name": "leaf",
@@ -5464,70 +5400,6 @@
                     "deprecationMessage": "",
                     "type": "string",
                     "defaultValue": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi sds-link\\\" viewBox=\\\"0 0 512 512\\\">\\n  <path d=\\\"M182.47,441.71a80,80,0,0,1-65.42-125.87l55.06-78.63a16,16,0,0,1,26.22,18.36L143.27,334.2a48,48,0,1,0,78.63,55.07L277,310.62A16,16,0,0,1,303.18,329l-55.06,78.64A80,80,0,0,1,182.47,441.71ZM339.89,276.56,395,197.92a80,80,0,0,0-131.07-91.78l-55.06,78.64A16,16,0,1,0,235,203.14L290.1,124.5a48,48,0,1,1,78.63,55.06L313.67,258.2a16,16,0,0,0,26.22,18.36Zm-116.66,55L315,200.53a16,16,0,0,0-26.22-18.36L197,313.23a16,16,0,0,0,26.22,18.36Z\\\"/>\\n</svg>\""
-                }
-            ],
-            "src/stories/Header.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Header.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Header>",
-                    "defaultValue": "(args: Header) => ({\n  props: args,\n})"
-                }
-            ],
-            "src/stories/Page.stories.ts": [
-                {
-                    "name": "LoggedIn",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "LoggedOut",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/Page.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story<Page>",
-                    "defaultValue": "(args: Page) => ({\n  props: args,\n})"
                 }
             ],
             "projects/icons/src/lib/custom-icons/sdsLogIn.ts": [
@@ -5698,38 +5570,6 @@
                     "defaultValue": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi sds-photo-alt\\\" viewBox=\\\"0 0 512 512\\\">\\n  <path d=\\\"M440,48H144a24,24,0,0,0-24,24v40H72a24,24,0,0,0-24,24V440a24,24,0,0,0,24,24H376a24,24,0,0,0,24-24V392h40a24,24,0,0,0,24-24V72A24,24,0,0,0,440,48Zm-72,96V346.55l-63.58-60.82a26.85,26.85,0,0,0-40-2.43l-50.67,48.87-22.49-21.51a23.82,23.82,0,0,0-33.39.2L80,387.22V144ZM271.84,432H80l94.73-92.86Zm46.3,0-81.22-77.69,46.25-44.62L368,390.84V432ZM432,360H400V136a24,24,0,0,0-24-24H152V80H432Z\\\"/>\\n</svg>\""
                 }
             ],
-            "src/stories/stacked-icons.stories.ts": [
-                {
-                    "name": "Primary",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/stacked-icons.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "Template.bind({})"
-                },
-                {
-                    "name": "stackedIconTemplate",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/stacked-icons.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "",
-                    "defaultValue": "require('!!raw-loader!./stacked-icons.html')"
-                },
-                {
-                    "name": "Template",
-                    "ctype": "miscellaneous",
-                    "subtype": "variable",
-                    "file": "src/stories/stacked-icons.stories.ts",
-                    "deprecated": false,
-                    "deprecationMessage": "",
-                    "type": "Story",
-                    "defaultValue": "(args) => {\n  console.log('inside template function')\n  return {\n    props: {\n      ...args\n    },\n    template: stackedIconTemplate.default\n  }\n}"
-                }
-            ],
             "projects/icons/src/lib/custom-icons/sdsPrint.ts": [
                 {
                     "name": "print",
@@ -5788,6 +5628,17 @@
                     "deprecationMessage": "",
                     "type": "string",
                     "defaultValue": "\"<svg xmlns=\\\"http://www.w3.org/2000/svg\\\" width=\\\"16\\\" height=\\\"16\\\" fill=\\\"currentColor\\\" class=\\\"bi sds-request\\\" viewBox=\\\"0 0 512 512\\\">\\n  <path d=\\\"M440,464H72a24,24,0,0,1-24-24V72A24,24,0,0,1,72,48H272a16,16,0,0,1,0,32H80V432H432V240a16,16,0,0,1,32,0V440A24,24,0,0,1,440,464ZM186.71,354.05l72.32-15a22.93,22.93,0,0,0,11.57-6.24L473.46,130c9.12-9.11,8.9-24.17-.49-33.59L415.64,39c-9.38-9.41-24.45-9.62-33.6-.5L179.14,241.44A22.87,22.87,0,0,0,173,253L158,325.3a24.56,24.56,0,0,0,23.94,29.23A24.67,24.67,0,0,0,186.71,354.05ZM398.6,67.23l46.16,46.18L249.92,308.25l-58.25,12.08,12.07-58.25ZM450.33,119h0Z\\\"/>\\n</svg>\""
+                }
+            ],
+            "src/app/shared/sandbox/sandbox-utils.ts": [
+                {
+                    "name": "require",
+                    "ctype": "miscellaneous",
+                    "subtype": "variable",
+                    "file": "src/app/shared/sandbox/sandbox-utils.ts",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "type": ""
                 }
             ],
             "projects/icons/src/lib/custom-icons/sdsReset.ts": [
@@ -8995,7 +8846,68 @@
                 }
             ]
         },
-        "groupedFunctions": {},
+        "groupedFunctions": {
+            "src/app/shared/sandbox/sandbox-utils.ts": [
+                {
+                    "name": "generateConfig",
+                    "file": "src/app/shared/sandbox/sandbox-utils.ts",
+                    "ctype": "miscellaneous",
+                    "subtype": "function",
+                    "deprecated": false,
+                    "deprecationMessage": "",
+                    "description": "",
+                    "args": [
+                        {
+                            "name": "filePath",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "moduleName",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        },
+                        {
+                            "name": "selector",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": ""
+                        }
+                    ],
+                    "jsdoctags": [
+                        {
+                            "name": "filePath",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "moduleName",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        },
+                        {
+                            "name": "selector",
+                            "type": "string",
+                            "deprecated": false,
+                            "deprecationMessage": "",
+                            "tagName": {
+                                "text": "param"
+                            }
+                        }
+                    ]
+                }
+            ]
+        },
         "groupedEnumerations": {},
         "groupedTypeAliases": {}
     },
@@ -12464,6 +12376,234 @@
                 "status": "low"
             },
             {
+                "filePath": "src/app/components/icon/icon-basic/icon-basic.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "IconBasicComponent",
+                "coveragePercent": 60,
+                "coverageCount": "3/5",
+                "status": "good"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Basic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "bootstrapSelected",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "buildIconList",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "degCorrection",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "filterResults",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "fixDisplayName",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "iconTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Overview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "overviewTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "sdsSelected",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "SingleIconTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "uswdsSelected",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "xByXCorrection",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/icon/icon.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "xKCorrection",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/stacked-icon/stacked-icon-basic/stacked-icon-basic.component.ts",
+                "type": "component",
+                "linktype": "component",
+                "name": "StackedIconBasicComponent",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Basic",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Overview",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "overviewTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "stackedIconTemplate",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/components/stacked-icon/stacked-icons.stories.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "Template",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/sandbox/sandbox-utils.ts",
+                "type": "function",
+                "linktype": "miscellaneous",
+                "linksubtype": "function",
+                "name": "generateConfig",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
+                "filePath": "src/app/shared/sandbox/sandbox-utils.ts",
+                "type": "variable",
+                "linktype": "miscellaneous",
+                "linksubtype": "variable",
+                "name": "require",
+                "coveragePercent": 0,
+                "coverageCount": "0/1",
+                "status": "low"
+            },
+            {
                 "filePath": "src/environments/environment.prod.ts",
                 "type": "variable",
                 "linktype": "miscellaneous",
@@ -12479,302 +12619,6 @@
                 "linktype": "miscellaneous",
                 "linksubtype": "variable",
                 "name": "environment",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Large",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Secondary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Small",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Button.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Header.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedIn",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "LoggedOut",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/Page.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/User.ts",
-                "type": "interface",
-                "linktype": "interface",
-                "name": "User",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/button.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "ButtonComponent",
-                "coveragePercent": 83,
-                "coverageCount": "5/6",
-                "status": "very-good"
-            },
-            {
-                "filePath": "src/stories/header.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "HeaderComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/icon.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "BasicIcons",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/icon.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "bootstrapSelected",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/icon.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "buildIconList",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/icon.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "degCorrection",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/icon.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "filterResults",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/icon.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "fixDisplayName",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/icon.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "iconTemplate",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/icon.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "sdsSelected",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/icon.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "SingleIconTemplate",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/icon.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "uswdsSelected",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/icon.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "xByXCorrection",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/icon.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "xKCorrection",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/page.component.ts",
-                "type": "component",
-                "linktype": "component",
-                "name": "PageComponent",
-                "coveragePercent": 0,
-                "coverageCount": "0/5",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/stacked-icons.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Primary",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/stacked-icons.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "stackedIconTemplate",
-                "coveragePercent": 0,
-                "coverageCount": "0/1",
-                "status": "low"
-            },
-            {
-                "filePath": "src/stories/stacked-icons.stories.ts",
-                "type": "variable",
-                "linktype": "miscellaneous",
-                "linksubtype": "variable",
-                "name": "Template",
                 "coveragePercent": 0,
                 "coverageCount": "0/1",
                 "status": "low"

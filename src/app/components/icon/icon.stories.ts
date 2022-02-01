@@ -5,8 +5,11 @@ import { IconComponent, uswdsAllIcons, allIcons as sdsIcons } from 'projects/ico
 import { kebabCase } from 'lodash-es';
 import * as _ from 'lodash';
 import { appendPrefix } from 'src/app/app.module';
+import { generateConfig } from 'src/app/shared/sandbox/sandbox-utils';
 
-const iconTemplate = require('!!raw-loader!./icon.html');
+const iconTemplate = require('!!raw-loader!./icon-basic/icon-basic.component.html');
+
+const overviewTemplate = require('!!raw-loader!./icon-overview/icon-overview.component.html')
 
 
 let uswdsSelected = true;
@@ -139,6 +142,11 @@ const SingleIconTemplate: Story = (args) => {
     template: iconTemplate.default
   }
 };
+export const Overview = () => ({
+  template: overviewTemplate.default,
+  props: {},
+});
+Overview.parameters = {options: {showPanel: false}};
 
 export const Basic = SingleIconTemplate.bind({});
 Basic.args = {
@@ -150,3 +158,7 @@ Basic.args = {
   library: ['USWDS'],
   rotate: '0'
 }
+Basic.parameters = {
+  options: {showPanel: true},
+  preview: generateConfig('components/icon/icon-basic', 'FormlyBasicSearchModule', 'formly-search-basic')
+};

@@ -9,6 +9,8 @@ import { allIcons as sdsIcons } from 'projects/icons/src/public-api';
 import { uswdsAllIcons } from 'projects/icons/src/public-api';
 import { CommonModule } from '@angular/common';
 import * as _ from 'lodash';
+import { IconBasicModule } from './components/icon/icon-basic/icon-basic.module';
+import { StackedIconBasicModule } from './components/stacked-icon/stacked-icon-basic/stacked-icon-basic.module';
 
 export const appendPrefix = (iconsObject, prefix): object => {
   const a = {};
@@ -33,7 +35,9 @@ export const appendPrefix = (iconsObject, prefix): object => {
       appendPrefix(_.cloneDeep(sdsIcons), 'sds'),
       _.cloneDeep(uswdsAllIcons),
     )),
-    CommonModule
+    CommonModule,
+    IconBasicModule,
+    StackedIconBasicModule
   ],
   providers: [],
   bootstrap: [AppComponent]
