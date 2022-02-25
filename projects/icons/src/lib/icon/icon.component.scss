@@ -24,6 +24,7 @@ i-bs ::ng-deep{
     width: 1em;
     height: 1em;
     overflow: visible;
+    display: block;
   }
 }
 
@@ -84,10 +85,3 @@ i-bs{
   }
 }
 
-:host.icon-display-block{
-  i-bs ::ng-deep{
-    svg {
-      display: block;
-    }
-  }
-}
