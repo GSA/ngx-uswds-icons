@@ -109,11 +109,14 @@ function main(){
           let replacementString = 'viewBox'
           if(!parsedSVG.children[0].properties.height){
             const height = viewBox.split(' ')[3];
-            replacementString = `height="${height} "${replacementString}`
+            replacementString = `height="${height}" ${replacementString}`
           }
           if(!parsedSVG.children[0].properties.width){
             const width = viewBox.split(' ')[2];
-            replacementString = `width="${width} "${replacementString}`
+            replacementString = `width="${width}" ${replacementString}`
+          }
+          if(!parsedSVG.children[0].properties.fill){
+            replacementString = `fill="currentColor" ${replacementString}`
           }
           replace({
             regex: "viewBox",
