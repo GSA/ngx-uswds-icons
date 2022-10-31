@@ -19,12 +19,12 @@ $skew-values: -45, -40, -35, -30, -25, -20, -15, -10, -5, 0, 5, 10, 15, 20, 25, 
   }
 }
 
-:host{
+:host {
   display: inline-block;
   vertical-align: -.15rem;
-  i-bs{
-    vertical-align: 0;
-    svg{
+
+  i-bs ::ng-deep {
+    svg {
       width: 1em;
       height: 1em;
       overflow: visible;
