@@ -7,6 +7,6 @@
     "@angular/core": "~14.2.12"
   },
   "dependencies": {
-    "ngx-bootstrap-icons": "^1.9.2"
+    "ngx-bootstrap-icons": "^1.8.4"
   }
 }
