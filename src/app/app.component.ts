@@ -19,6 +19,11 @@ export class AppComponent {
     return a;
   }
 
+  specialIcons = [
+    { class: 'sds bi-chevron-left bi-bold size-lg', name: 'chevron-left' },
+    { class: 'sds bi-chevron-right bi-bold size-lg', name: 'chevron-right' }
+  ];  
+
   title = 'ngx-uswds-icons';
   keys = Object.keys(allIcons).map(iconName => _.kebabCase(iconName));;
   sdsKeys = Object.keys(sdsIcons).map(iconName => _.kebabCase(iconName));;

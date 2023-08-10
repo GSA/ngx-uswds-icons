@@ -1,3 +1,4 @@
+<h3 class="header-container">Bootsrap Icons:</h3>
 <div class="icon-container">
   <div *ngFor="let key of keys" class="icon">
     <usa-icon [icon]="key"></usa-icon>
@@ -5,6 +6,15 @@
   </div>
 </div>
 <hr>
+<h3 class="header-container">Bootstrap Icons with bi-bold:</h3>
+<div class="icon-container">
+  <div *ngFor="let icon of specialIcons" class="icon">
+    <i-bs [class]="icon.class"></i-bs>
+    <p class="sml">{{icon.name}}</p>
+  </div>
+</div>
+<hr>
+<h3 class="header-container">Custom Icons:</h3>
 <div class="icon-container">
   <div *ngFor="let key of sdsKeys; index as i" class="icon">
     <usa-icon [icon]="sdsUniqueNames[i]"></usa-icon>
@@ -12,6 +22,7 @@
   </div>
 </div>
 <hr>
+<h3 class="header-container">USWDS Icons:</h3>
 <div class="icon-container">
   <div *ngFor="let key of uswdsKeys" class="icon">
     <usa-icon [icon]="key"></usa-icon>
