@@ -61,7 +61,7 @@
                 {
                   "type": "anyComponentStyle",
                   "maximumWarning": "6kb",
-                  "maximumError": "10kb"
+                  "maximumError": "25kb"
                 }
               ]
             }
@@ -143,6 +143,5 @@
           }
         }
       }
-    }},
-  "defaultProject": "ngx-uswds-icons"
+    }}
 }
