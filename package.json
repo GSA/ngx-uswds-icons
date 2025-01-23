@@ -1,11 +1,11 @@
 {
   "name": "ngx-uswds-icons-demo",
-  "version": "18.0.0",
+  "version": "18.0.1",
   "scripts": {
     "ng": "ng",
     "start": "npm run regenerateIcons && ng serve",
     "build": "npm run regenerateIcons && ng build",
-    "build-prod": "npm run regenerateIcons && ng build ngx-uswds-icons --configuration production",
+    "build-prod": " ng build ngx-uswds-icons --configuration production",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
