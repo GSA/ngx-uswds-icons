@@ -32,10 +32,10 @@ import { uswdsCamping } from './uswdsCamping'
 import { uswdsCancel } from './uswdsCancel'
 import { uswdsChat } from './uswdsChat'
 import { uswdsCheck } from './uswdsCheck'
+import { uswdsCheckroom } from './uswdsCheckroom'
 import { uswdsCheckBoxOutlineBlank } from './uswdsCheckBoxOutlineBlank'
 import { uswdsCheckCircle } from './uswdsCheckCircle'
 import { uswdsCheckCircleOutline } from './uswdsCheckCircleOutline'
-import { uswdsCheckroom } from './uswdsCheckroom'
 import { uswdsChevronLeft } from './uswdsChevronLeft'
 import { uswdsChevronRight } from './uswdsChevronRight'
 import { uswdsCleanHands } from './uswdsCleanHands'
@@ -95,8 +95,8 @@ import { uswdsFormatSize } from './uswdsFormatSize'
 import { uswdsForum } from './uswdsForum'
 import { uswdsGithub } from './uswdsGithub'
 import { uswdsGridView } from './uswdsGridView'
-import { uswdsGroupAdd } from './uswdsGroupAdd'
 import { uswdsGroups } from './uswdsGroups'
+import { uswdsGroupAdd } from './uswdsGroupAdd'
 import { uswdsHearing } from './uswdsHearing'
 import { uswdsHelp } from './uswdsHelp'
 import { uswdsHelpOutline } from './uswdsHelpOutline'
@@ -276,10 +276,10 @@ uswdsCamping,
 uswdsCancel,
 uswdsChat,
 uswdsCheck,
+uswdsCheckroom,
 uswdsCheckBoxOutlineBlank,
 uswdsCheckCircle,
 uswdsCheckCircleOutline,
-uswdsCheckroom,
 uswdsChevronLeft,
 uswdsChevronRight,
 uswdsCleanHands,
@@ -339,8 +339,8 @@ uswdsFormatSize,
 uswdsForum,
 uswdsGithub,
 uswdsGridView,
-uswdsGroupAdd,
 uswdsGroups,
+uswdsGroupAdd,
 uswdsHearing,
 uswdsHelp,
 uswdsHelpOutline,
