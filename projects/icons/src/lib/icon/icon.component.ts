@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
+	standalone: false,
   selector: 'usa-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss']

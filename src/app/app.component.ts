@@ -5,6 +5,7 @@ import { allIcons } from 'ngx-bootstrap-icons';
 import * as _ from 'lodash';
 
 @Component({
+	standalone: false,
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
