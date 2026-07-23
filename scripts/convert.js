@@ -101,7 +101,7 @@ function main(){
           const viewBox = parsedSVG.children[0].properties.viewBox;
           replace({
             regex: "SVG_ELEMENT",
-            replacement: svgData,
+            replacement: svgData.replace(/\n$/, ''),
             paths: [path.join(desto, `${prefixedFileName}.ts`)],
             recursive: false,
             silent: true,
