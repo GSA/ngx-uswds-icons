@@ -52,7 +52,7 @@ describe('IconComponent', () => {
 
     it('leaves iconClasses unchanged when falsy value provided', () => {
       component.classes = ['initial'];
-      component.classes = (null as unknown as string[]);
+      component.classes = null as unknown as string[];
       expect(component.iconClasses).toBe('initial');
     });
   });

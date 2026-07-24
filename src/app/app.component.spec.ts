@@ -21,6 +21,4 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app.title).toEqual('ngx-uswds-icons');
   });
-
-
 });
