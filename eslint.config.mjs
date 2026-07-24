@@ -1,12 +1,12 @@
 // @ts-check
-const tsParser = require('@typescript-eslint/parser');
-const tsPlugin = require('@typescript-eslint/eslint-plugin');
-const angularPlugin = require('@angular-eslint/eslint-plugin');
-const angularTemplatePlugin = require('@angular-eslint/eslint-plugin-template');
-const templateParser = require('@angular-eslint/template-parser');
+import tsParser from '@typescript-eslint/parser';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+import angularPlugin from '@angular-eslint/eslint-plugin';
+import angularTemplatePlugin from '@angular-eslint/eslint-plugin-template';
+import templateParser from '@angular-eslint/template-parser';
 
 /** @type {import('eslint').Linter.Config[]} */
-module.exports = [
+export default [
   // ── Global ignores ──────────────────────────────────────────────────────────
   {
     ignores: [
@@ -27,7 +27,7 @@ module.exports = [
       parser: tsParser,
       parserOptions: {
         project: ['./tsconfig.json', './tsconfig.app.json', './tsconfig.spec.json'],
-        tsconfigRootDir: __dirname,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: {
@@ -35,7 +35,7 @@ module.exports = [
       '@angular-eslint': angularPlugin,
     },
     rules: {
-      // TypeScript recommended (type-checked)
+      // TypeScript recommended
       ...tsPlugin.configs['recommended'].rules,
 
       // Angular recommended
@@ -63,7 +63,7 @@ module.exports = [
       parser: tsParser,
       parserOptions: {
         project: ['./projects/icons/tsconfig.lib.json'],
-        tsconfigRootDir: __dirname,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
     plugins: {
