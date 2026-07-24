@@ -7,7 +7,14 @@ import prettierConfig from 'eslint-config-prettier';
 
 export default [
   {
-    ignores: ['dist/**', 'node_modules/**', 'scripts/**', 'projects/icons/src/lib/uswds-icons/**'],
+    ignores: [
+      'dist/**',
+      'node_modules/**',
+      'scripts/**',
+      'projects/icons/src/lib/uswds-icons/**',
+      'coverage/**',
+      'test/**',
+    ],
   },
   {
     files: ['**/*.ts'],
