@@ -13,6 +13,9 @@
     "postinstall": "npm run regenerateIcons"
   },
   "private": true,
+  "engines": {
+    "node": ">=20 <21"
+  },
   "dependencies": {
     "@angular/animations": "^17.3.1",
     "@angular/common": "^17.3.1",
