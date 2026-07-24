@@ -1,3 +1,4 @@
+import { fileURLToPath } from 'node:url';
 import { defineConfig } from 'vitest/config';
 
 export default defineConfig({
@@ -6,7 +7,7 @@ export default defineConfig({
       // Stub out Angular core entirely — component classes are tested as
       // plain TypeScript; decorators become no-ops so we never load rxjs@6's
       // broken bare-directory ESM imports.
-      '@angular/core': new URL('./test/__mocks__/@angular/core.ts', import.meta.url).pathname,
+      '@angular/core': fileURLToPath(new URL('./test/__mocks__/@angular/core.ts', import.meta.url)),
     },
   },
   test: {
@@ -29,7 +30,6 @@ export default defineConfig({
         'projects/**/*.spec.ts',
         'projects/**/test.ts',
         'projects/**/*.module.ts',
-        'projects/**/*.modue.ts',
       ],
       thresholds: {
         statements: 80,
