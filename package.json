@@ -9,8 +9,7 @@
     "test": "ng test",
     "lint": "eslint .",
     "e2e": "ng e2e",
-    "regenerateIcons": "./scripts/copy-svgs.sh",
-    "postinstall": "npm run regenerateIcons"
+    "regenerateIcons": "./scripts/copy-svgs.sh"
   },
   "private": true,
   "engines": {
