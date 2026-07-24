@@ -1,0 +1,7 @@
+node_modules
+dist
+.angular
+coverage
+*.min.js
+*.min.css
+projects/icons/src/lib/uswds-icons/

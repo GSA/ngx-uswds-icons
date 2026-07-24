@@ -7,13 +7,13 @@ import { Component, Input } from '@angular/core';
 })
 export class IconComponent{
 
-  skewX: number = 0;
-  skewY: number = 0;
-  iconClasses: string = '';
+  skewX = 0;
+  skewY = 0;
+  iconClasses = '';
 
-  @Input() icon: string = '';
-  @Input() rotate: number = 0;
-  @Input() size: string = 'lg';
+  @Input() icon = '';
+  @Input() rotate = 0;
+  @Input() size = 'lg';
   /**
    * Classes to be applied to i-bs element
    */

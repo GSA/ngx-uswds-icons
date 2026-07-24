@@ -11,11 +11,11 @@ import * as _ from 'lodash';
 })
 export class AppComponent {
 
-  appendPrefix = (iconsObject, prefix): Object => {
-    const a = {};
-    Object.keys(iconsObject).forEach(key => {
-      a[`${prefix}${_.upperFirst(key)}`]=iconsObject[key];
-    })
+  appendPrefix = (iconsObject: Record<string, unknown>, prefix: string): Record<string, unknown> => {
+    const a: Record<string, unknown> = {};
+    Object.keys(iconsObject).forEach((key) => {
+      a[`${prefix}${_.upperFirst(key)}`] = iconsObject[key];
+    });
     return a;
   }
 
