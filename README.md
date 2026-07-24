@@ -22,6 +22,21 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 
 Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
+## Linting
+
+This project uses [ESLint 9](https://eslint.org/) with flat config (`eslint.config.js`), [`@typescript-eslint`](https://typescript-eslint.io/) for TypeScript rules, and [`@angular-eslint`](https://github.com/angular-eslint/angular-eslint) for Angular-specific rules.
+
+Run the linter:
+
+```bash
+npm run lint
+```
+
+Lint runs automatically in CI on every push and pull request. Violations will fail the build.
+
+**Config file:** `eslint.config.js` at the repo root.  
+**Note:** The `scripts/` directory and the generated `projects/icons/src/lib/uswds-icons/` files are excluded from strict linting.
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
