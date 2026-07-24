@@ -6,7 +6,9 @@
     "start": "npm run regenerateIcons && ng serve",
     "build": "npm run regenerateIcons && ng build",
     "build-prod": "npm run regenerateIcons && ng build ngx-uswds-icons --configuration production",
-    "test": "ng test",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:coverage": "vitest run --coverage",
     "lint": "eslint .",
     "e2e": "ng e2e",
     "regenerateIcons": "./scripts/copy-svgs.sh",
@@ -45,9 +47,11 @@
     "@angular/compiler-cli": "^17.3.1",
     "@types/jasmine": "~3.6.0",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^12.11.1",
+    "@types/node": "20.17.57",
     "@typescript-eslint/eslint-plugin": "8.38.0",
     "@typescript-eslint/parser": "8.38.0",
+    "@typescript-eslint/utils": "8.38.0",
+    "@vitest/coverage-v8": "2.1.9",
     "eslint": "9.39.5",
     "eslint-config-prettier": "10.1.8",
     "jasmine-core": "^5.1.1",
@@ -61,6 +65,13 @@
     "prettier": "3.9.6",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
-    "typescript": "~5.4.3"
+    "typescript": "~5.4.3",
+    "vitest": "2.1.9"
+  },
+  "allowScripts": {
+    "esbuild@0.21.5": true,
+    "esbuild@0.20.1": true,
+    "fsevents@2.3.3": true,
+    "nice-napi@1.0.2": true
   }
 }
