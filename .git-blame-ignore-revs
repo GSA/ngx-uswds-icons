@@ -1,0 +1,6 @@
+# Commits to ignore in `git blame` — add formatting-only SHAs here.
+# Configure locally with:
+#   git config blame.ignoreRevsFile .git-blame-ignore-revs
+
+# style: format entire repo with Prettier
+edaff9e6499cc70d510a0c821987372948383576
