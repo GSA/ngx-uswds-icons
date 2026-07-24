@@ -37,6 +37,7 @@
     "zone.js": "~0.14.4"
   },
   "devDependencies": {
+    "uswds": "2.14.0",
     "@angular-devkit/build-angular": "^17.3.2",
     "@angular-eslint/eslint-plugin": "19.8.1",
     "@angular-eslint/eslint-plugin-template": "19.8.1",
