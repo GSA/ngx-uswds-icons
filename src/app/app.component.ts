@@ -14,7 +14,7 @@ export class AppComponent {
   appendPrefix = (iconsObject: Record<string, unknown>, prefix: string): Record<string, unknown> => {
     const a: Record<string, unknown> = {};
     Object.keys(iconsObject).forEach(key => {
-      a[`${prefix}${_.upperFirst(key)}`]=iconsObject[key];
+      a[`${prefix}${_.upperFirst(key)}`] = iconsObject[key];
     })
     return a;
   }
