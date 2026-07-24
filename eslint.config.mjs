@@ -7,12 +7,7 @@ import prettierConfig from 'eslint-config-prettier';
 
 export default [
   {
-    ignores: [
-      'dist/**',
-      'node_modules/**',
-      'scripts/**',
-      'projects/icons/src/lib/uswds-icons/**',
-    ],
+    ignores: ['dist/**', 'node_modules/**', 'scripts/**', 'projects/icons/src/lib/uswds-icons/**'],
   },
   {
     files: ['**/*.ts'],
@@ -31,10 +26,7 @@ export default [
       ...tsPlugin.configs.recommended.rules,
       ...angularPlugin.configs.recommended.rules,
       ...prettierConfig.rules,
-      '@angular-eslint/component-selector': [
-        'error',
-        { type: 'element', prefix: ['app', 'usa'], style: 'kebab-case' },
-      ],
+      '@angular-eslint/component-selector': ['error', { type: 'element', prefix: ['app', 'usa'], style: 'kebab-case' }],
       '@angular-eslint/directive-selector': [
         'error',
         { type: 'attribute', prefix: ['app', 'usa'], style: 'camelCase' },

@@ -7,25 +7,21 @@ import * as _ from 'lodash';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-
   appendPrefix = (iconsObject: Record<string, unknown>, prefix: string): Record<string, unknown> => {
     const a: Record<string, unknown> = {};
     Object.keys(iconsObject).forEach((key) => {
       a[`${prefix}${_.upperFirst(key)}`] = iconsObject[key];
     });
     return a;
-  }
+  };
 
   title = 'ngx-uswds-icons';
-  keys = Object.keys(allIcons).map(iconName => _.kebabCase(iconName));;
-  sdsKeys = Object.keys(sdsIcons).map(iconName => _.kebabCase(iconName));;
-  uswdsKeys = Object.keys(uswdsAllIcons).map(iconName => _.kebabCase(iconName));;
+  keys = Object.keys(allIcons).map((iconName) => _.kebabCase(iconName));
+  sdsKeys = Object.keys(sdsIcons).map((iconName) => _.kebabCase(iconName));
+  uswdsKeys = Object.keys(uswdsAllIcons).map((iconName) => _.kebabCase(iconName));
   sdsUniqueNames = Object.keys(this.appendPrefix(sdsIcons, 'sds'));
-  constructor(){
-  }
-
-
+  constructor() {}
 }

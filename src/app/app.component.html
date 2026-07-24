@@ -1,24 +1,22 @@
 <div class="icon-container">
   <div *ngFor="let key of keys" class="icon">
     <usa-icon [icon]="key"></usa-icon>
-    <p class="sml">{{key}}</p>
+    <p class="sml">{{ key }}</p>
   </div>
 </div>
-<hr>
+<hr />
 <div class="icon-container">
   <div *ngFor="let key of sdsKeys; index as i" class="icon">
     <usa-icon [icon]="sdsUniqueNames[i]"></usa-icon>
-    <p class="sml">{{key}}</p>
+    <p class="sml">{{ key }}</p>
   </div>
 </div>
-<hr>
+<hr />
 <div class="icon-container">
   <div *ngFor="let key of uswdsKeys" class="icon">
     <usa-icon [icon]="key"></usa-icon>
-    <p class="sml">{{key}}</p>
+    <p class="sml">{{ key }}</p>
   </div>
 </div>
-
-
 
 <router-outlet></router-outlet>

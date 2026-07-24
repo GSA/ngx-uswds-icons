@@ -3,13 +3,11 @@ import { Component, Input } from '@angular/core';
 @Component({
   selector: 'usa-stacked-icon',
   templateUrl: './stacked-icon.component.html',
-  styleUrls: ['./stacked-icon.component.scss']
+  styleUrls: ['./stacked-icon.component.scss'],
 })
 export class StackedIconComponent {
-
   @Input()
   size: string;
 
-  constructor() { }
-
+  constructor() {}
 }
