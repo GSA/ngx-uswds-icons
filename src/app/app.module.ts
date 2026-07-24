@@ -12,31 +12,25 @@ import * as _ from 'lodash';
 
 export const appendPrefix = (iconsObject, prefix): object => {
   const a = {};
-  Object.keys(iconsObject).forEach(key => {
+  Object.keys(iconsObject).forEach((key) => {
     a[`${prefix}${_.upperFirst(key)}`] = iconsObject[key];
   });
   return a;
 };
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
     IconModule,
     StackedIconModule,
-    NgxBootstrapIconsModule.pick(Object.assign(
-      {},
-      _.cloneDeep(allIcons),
-      appendPrefix(_.cloneDeep(sdsIcons), 'sds'),
-      _.cloneDeep(uswdsAllIcons),
-    )),
-    CommonModule
+    NgxBootstrapIconsModule.pick(
+      Object.assign({}, _.cloneDeep(allIcons), appendPrefix(_.cloneDeep(sdsIcons), 'sds'), _.cloneDeep(uswdsAllIcons)),
+    ),
+    CommonModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
-
+export class AppModule {}

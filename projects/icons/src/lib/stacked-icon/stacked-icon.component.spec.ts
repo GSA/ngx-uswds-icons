@@ -8,9 +8,8 @@ describe('StackedIconComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ StackedIconComponent ]
-    })
-    .compileComponents();
+      declarations: [StackedIconComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
