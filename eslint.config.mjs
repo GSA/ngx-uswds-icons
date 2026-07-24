@@ -26,6 +26,8 @@ export default [
     languageOptions: {
       parser: tsParser,
       parserOptions: {
+        ecmaVersion: 2022,
+        sourceType: 'module',
         project: ['./tsconfig.json', './tsconfig.app.json', './tsconfig.spec.json'],
         tsconfigRootDir: import.meta.dirname,
       },
@@ -62,6 +64,8 @@ export default [
     languageOptions: {
       parser: tsParser,
       parserOptions: {
+        ecmaVersion: 2022,
+        sourceType: 'module',
         project: ['./projects/icons/tsconfig.lib.json'],
         tsconfigRootDir: import.meta.dirname,
       },

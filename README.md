@@ -32,6 +32,12 @@ Run the linter:
 npm run lint
 ```
 
+Auto-fix violations where possible:
+
+```bash
+npm run lint -- --fix
+```
+
 Lint runs automatically in CI on every push and pull request. Violations will fail the build.
 
 **Config file:** `eslint.config.mjs` at the repo root.  
