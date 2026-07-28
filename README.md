@@ -57,7 +57,7 @@ Run `npm test` to execute the unit tests via [Vitest](https://vitest.dev/).
 
 ## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+End-to-end tests are not part of the current CI workflow. The legacy Protractor setup is still present in the repository but is deprecated and should be replaced before re-enabling `npm run e2e`.
 
 ## Further help
 
