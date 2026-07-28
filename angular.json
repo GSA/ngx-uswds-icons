@@ -79,18 +79,6 @@
           "options": {
             "buildTarget": "ngx-uswds-icons-demo:build"
           }
-        },
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "ngx-uswds-icons-demo:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "ngx-uswds-icons-demo:serve:production"
-            }
-          }
         }
       }
     },

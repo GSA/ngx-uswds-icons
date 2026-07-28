@@ -57,7 +57,9 @@ Run `npm test` to execute the unit tests via [Vitest](https://vitest.dev/).
 
 ## Running end-to-end tests
 
-End-to-end tests are not part of the current CI workflow. The legacy Protractor setup is still present in the repository but is deprecated and should be replaced before re-enabling `npm run e2e`.
+Run `npm run e2e` to execute the Playwright smoke test against the demo application in Chromium. On a fresh local checkout, run `npx playwright install chromium` once before the first e2e run.
+
+The current e2e scope is intentionally narrow: Playwright starts the Angular demo app, loads the root page, fails on browser console errors, and verifies that expected demo content and at least one rendered SVG icon are present. This provides upgrade confidence without introducing a broad, high-maintenance browser test suite.
 
 ## Contributing
 
