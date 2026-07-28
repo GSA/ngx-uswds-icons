@@ -34,7 +34,7 @@
     "rxjs": "~6.6.0",
     "svg-parser": "^2.0.4",
     "tslib": "^2.4.0",
-    "zone.js": "~0.14.4"
+    "zone.js": "~0.14.10"
   },
   "devDependencies": {
     "uswds": "2.14.0",
