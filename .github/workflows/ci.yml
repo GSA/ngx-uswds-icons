@@ -31,6 +31,14 @@ jobs:
       - name: Test with coverage
         run: npm run test:coverage
 
+      - name: Upload coverage artifact
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: vitest-coverage
+          path: coverage/**
+          if-no-files-found: warn
+
       - name: Commit coverage badge
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: |
