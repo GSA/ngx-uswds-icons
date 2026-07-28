@@ -8,6 +8,7 @@ import * as _ from 'lodash';
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
+  standalone: false,
 })
 export class AppComponent {
   appendPrefix = (iconsObject: Record<string, unknown>, prefix: string): Record<string, unknown> => {
