@@ -20,11 +20,11 @@ Closes #
 
 <!--- Describe the steps a reviewer should follow to verify this change works as expected -->
 
-1.
-2.
-3.
+1. <!-- Step one: e.g. `npm run build-prod` -->
+2. <!-- Step two: e.g. open the app and navigate to … -->
+3. <!-- Step three: e.g. confirm the expected output -->
 
-**Expected result:**
+**Expected result:** <!-- Describe what a passing result looks like -->
 
 ## Checklist
 
@@ -35,5 +35,5 @@ Closes #
 - [ ] `lint` passes (`npm run lint`)
 - [ ] `build-prod` passes (`npm run build-prod`)
 - [ ] Tests pass (`npm run test`) — _once #29 is merged, also verify coverage_
-- [ ] My change requires a documentation update and I have updated it accordingly
-- [ ] Any dependent changes have been merged and published in downstream modules
+- [ ] If this change requires a documentation update, I have updated it accordingly
+- [ ] If there are dependent changes, they have been merged and published in downstream modules
