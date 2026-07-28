@@ -2,11 +2,20 @@
 
 ![Coverage](.github/badges/coverage.svg)
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.3.
+This project uses Angular 20 and Node 24.
+
+## Prerequisites
+
+Use the Node version pinned in `.nvmrc` before installing dependencies or running project commands.
+
+```bash
+nvm use
+npm ci
+```
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm start` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
 
@@ -14,7 +23,9 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+Run `npm run build` to build the demo application. The build artifacts will be stored in the `dist/` directory.
+
+Run `npm run build-prod` to build the publishable `ngx-uswds-icons` library package.
 
 ## Linting
 
@@ -42,7 +53,7 @@ Generated files in `projects/icons/src/lib/uswds-icons/` and `scripts/` are excl
 
 ## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Run `npm test` to execute the unit tests via [Vitest](https://vitest.dev/).
 
 ## Running end-to-end tests
 
