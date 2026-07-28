@@ -4,6 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'usa-icon',
   templateUrl: './icon.component.html',
   styleUrls: ['./icon.component.scss'],
+  standalone: false,
 })
 export class IconComponent {
   skewX = 0;

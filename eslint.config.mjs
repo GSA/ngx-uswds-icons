@@ -38,6 +38,7 @@ export default [
         'error',
         { type: 'attribute', prefix: ['app', 'usa'], style: 'camelCase' },
       ],
+      '@angular-eslint/prefer-standalone': 'off',
     },
   },
   {
