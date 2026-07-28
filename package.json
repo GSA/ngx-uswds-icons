@@ -10,7 +10,7 @@
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage && coverage-badges --source coverage/coverage-summary.json --output .github/badges/coverage.svg",
     "lint": "eslint .",
-    "e2e": "ng e2e",
+    "e2e": "playwright test",
     "regenerateIcons": "./scripts/copy-svgs.sh",
     "format": "prettier --write .",
     "format:check": "prettier --check ."
@@ -43,6 +43,7 @@
     "@angular-eslint/template-parser": "20.7.0",
     "@angular/cli": "20.3.32",
     "@angular/compiler-cli": "20.3.26",
+    "@playwright/test": "^1.62.0",
     "@types/node": "24.13.3",
     "@typescript-eslint/eslint-plugin": "8.38.0",
     "@typescript-eslint/parser": "8.38.0",
