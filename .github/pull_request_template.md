@@ -10,7 +10,7 @@
 <!--- Link to the GitHub issue for this change (e.g. Closes #123) -->
 <!--- If there is no existing issue, explain why this change is required and what problem it solves -->
 
-Closes #
+Closes #<!-- issue number, e.g. 123 -->
 
 ## Type of Change (Select One and Apply Label)
 
@@ -30,6 +30,8 @@ Closes #
 **Expected result:** <!-- Describe what a passing result looks like -->
 
 ## Screenshots (if appropriate)
+
+<!--- Add screenshots or screen recordings showing the change in action. If not applicable, write "N/A". -->
 
 ## Checklist
 
