@@ -59,6 +59,15 @@ Run `npm test` to execute the unit tests via [Vitest](https://vitest.dev/).
 
 End-to-end tests are not part of the current CI workflow. The legacy Protractor setup is still present in the repository but is deprecated and should be replaced before re-enabling `npm run e2e`.
 
+## Contributing
+
+Pull requests are welcome. Please follow these guidelines:
+
+- Branch names follow the convention `gh-<issue-number>-<short-slug>` (e.g. `gh-38-add-pull-request-template`).
+- Every PR should reference a GitHub issue — include `Closes #<number>` in the PR description.
+- All PRs use the repository's pull request template (`.github/pull_request_template.md`), which GitHub loads automatically when you open a PR.
+- Ensure `npm run lint`, `npm run format:check`, `npm run build-prod`, and `npm run test` all pass before requesting review.
+
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
