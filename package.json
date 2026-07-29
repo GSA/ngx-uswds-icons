@@ -13,7 +13,8 @@
     "e2e": "playwright test",
     "regenerateIcons": "./scripts/copy-svgs.sh",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "validate:publish-workflow": "node scripts/validate-publish-workflow.mjs"
   },
   "private": true,
   "engines": {
