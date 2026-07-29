@@ -12,11 +12,11 @@ See also: `.github/workflows/publish.yml` for the full workflow source.
 Three independent guardrails must all be satisfied before a live publish can
 reach npm. An attacker would need to defeat all three simultaneously.
 
-| Layer                 | What it guards                                                                                                                 | Where it lives                                      |
-| --------------------- | ------------------------------------------------------------------------------------------------------------------------------ | --------------------------------------------------- |
-| 1 — CODEOWNERS        | Merge-time: any change to `/.github/` requires `@GSA/sam-shared-frontend-admin` review                                         | `.github/CODEOWNERS`                                |
-| 2 — Branch protection | Merge-time: `master` requires a passing PR review, code-owner approval, and forbids direct pushes                              | GitHub repo Settings → Branches                     |
-| 3 — Environment gate  | Run-time: the `npm-publish` environment pauses every publish job for a named human approver **before** OIDC mints a credential | GitHub repo Settings → Environments → `npm-publish` |
+| Layer                 | What it guards                                                                                                             | Where it lives                                  |
+| --------------------- | -------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------- |
+| 1 — CODEOWNERS        | Merge-time: any change to `/.github/` requires `@GSA/sam-shared-frontend-admin` review                                     | `.github/CODEOWNERS`                            |
+| 2 — Branch protection | Merge-time: `master` requires a passing PR review, code-owner approval, and forbids direct pushes                          | GitHub repo Settings → Branches                 |
+| 3 — Environment gate  | Run-time: the `release` environment pauses every publish job for a named human approver **before** OIDC mints a credential | GitHub repo Settings → Environments → `release` |
 
 Layers 1 and 2 prevent an unauthorized workflow change from landing on
 `master`. Layer 3 catches anything that somehow slips through — even a
@@ -32,9 +32,9 @@ approves the pending deployment.
 2. The `quality-gates` job runs first (format check, lint, Vitest coverage,
    Playwright smoke test, Angular package build).
 3. On success, the `publish` job is queued **but paused** at the
-   `environment: npm-publish` gate.
+   `environment: release` gate.
 4. GitHub sends a notification to the required reviewers configured on the
-   `npm-publish` environment.
+   `release` environment.
 5. A named DevSecOps approver reviews the pending deployment in
    **Actions → the workflow run → Review deployments** and clicks **Approve**.
 6. Only after approval does the job continue — at which point GitHub mints a
@@ -68,7 +68,7 @@ off as done and record the date.
 
 Location: `https://github.com/GSA/ngx-uswds-icons/settings/branches`
 
-### Layer 3 — `npm-publish` environment
+### Layer 3 — `release` environment
 
 - [ ] **Required reviewers** — add `@GSA/sam-shared-frontend-admin` (and/or
       specific individuals); at least one approval required
@@ -88,11 +88,11 @@ Location: `https://github.com/GSA/ngx-uswds-icons/settings/environments`
   - **Organization**: `GSA`
   - **Repository**: `ngx-uswds-icons`
   - **Workflow filename**: `publish.yml`
-  - **Environment name**: `npm-publish`
+  - **Environment name**: `release`
 - [ ] Once registered, flip `DRY_RUN` to `false`:
   - Go to `https://github.com/GSA/ngx-uswds-icons/settings/variables/actions`
   - Set the `DRY_RUN` repository variable (or environment variable on
-    `npm-publish`) to `false`
+    `release`) to `false`
   - Alternatively, edit the default in `publish.yml` — but prefer the variable
     so it can be toggled without a code change
 
@@ -103,7 +103,7 @@ Location: `https://github.com/GSA/ngx-uswds-icons/settings/environments`
 1. Trigger a manual dry-run: **Actions → Publish to npm → Run workflow** →
    leave `dry-run: true` → **Run workflow**.
 2. Watch the run. After `quality-gates` passes, the `publish` job should show
-   **"Waiting for review"** under the `npm-publish` environment.
+   **"Waiting for review"** under the `release` environment.
 3. Approve it. The job should proceed, run `npm publish --dry-run` from
    `dist/icons`, and exit 0.
 4. Confirm in the job logs that `npm publish --dry-run` ran (look for

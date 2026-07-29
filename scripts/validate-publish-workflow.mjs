@@ -7,7 +7,7 @@ const checks = [
   ['triggers when a full GitHub Release is published', /on:\s*\n(?:.|\n)*release:\s*\n(?:.|\n)*types:\s*\[released\]/],
   ['supports manual dry-run rehearsals', /workflow_dispatch:\s*\n(?:.|\n)*dry-run:\s*\n(?:.|\n)*type:\s*boolean(?:.|\n)*default:\s*true/],
   ['keeps top-level permissions least-privilege', /permissions:\s*\n\s*contents:\s*read\b/],
-  ['gates the publish job through the npm-publish environment', /publish:\s*\n(?:.|\n)*environment:\s*npm-publish\b/],
+  ['gates the publish job through the release environment', /publish:\s*\n(?:.|\n)*environment:\s*release\b/],
   ['grants OIDC only to the publish job', /publish:\s*\n(?:.|\n)*permissions:\s*\n\s*contents:\s*read\b\s*\n\s*id-token:\s*write\b/],
   ['sets up npm against the public registry', /registry-url:\s*["']https:\/\/registry\.npmjs\.org["']/],
   ['verifies the release tag matches projects/icons/package.json', /require\('\.\/projects\/icons\/package\.json'\)\.version/],
