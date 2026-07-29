@@ -2,6 +2,10 @@
   "name": "@gsa-sam/ngx-uswds-icons",
   "version": "19.0.0",
   "types": "../../../dist/out-tsc/projects/icons/index.d.ts",
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "peerDependencies": {
     "@angular/common": "^19.0.0",
     "@angular/core": "^19.0.0"
