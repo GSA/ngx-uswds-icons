@@ -1,22 +1,28 @@
 <div class="icon-container">
-  <div *ngFor="let key of keys" class="icon">
-    <usa-icon [icon]="key"></usa-icon>
-    <p class="sml">{{ key }}</p>
-  </div>
+  @for (key of keys; track key) {
+    <div class="icon">
+      <usa-icon [icon]="key"></usa-icon>
+      <p class="sml">{{ key }}</p>
+    </div>
+  }
 </div>
 <hr />
 <div class="icon-container">
-  <div *ngFor="let key of sdsKeys; index as i" class="icon">
-    <usa-icon [icon]="sdsUniqueNames[i]"></usa-icon>
-    <p class="sml">{{ key }}</p>
-  </div>
+  @for (key of sdsKeys; track key; let i = $index) {
+    <div class="icon">
+      <usa-icon [icon]="sdsUniqueNames[i]"></usa-icon>
+      <p class="sml">{{ key }}</p>
+    </div>
+  }
 </div>
 <hr />
 <div class="icon-container">
-  <div *ngFor="let key of uswdsKeys" class="icon">
-    <usa-icon [icon]="key"></usa-icon>
-    <p class="sml">{{ key }}</p>
-  </div>
+  @for (key of uswdsKeys; track key) {
+    <div class="icon">
+      <usa-icon [icon]="key"></usa-icon>
+      <p class="sml">{{ key }}</p>
+    </div>
+  }
 </div>
 
 <router-outlet></router-outlet>
