@@ -2,7 +2,7 @@
 
 ![Coverage](.github/badges/coverage.svg)
 
-This project uses Angular 20 and Node 24.
+This project uses Angular 21 and Node 24.
 
 ## Prerequisites
 
