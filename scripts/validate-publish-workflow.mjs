@@ -13,8 +13,9 @@ const checks = [
   ['verifies the release tag matches projects/icons/package.json', /require\('\.\/projects\/icons\/package\.json'\)\.version/],
   ['builds the Angular package before publishing', /npm run build-prod/],
   ['publishes from the ng-packagr output directory', /working-directory:\s*dist\/icons\b/],
+  ['enforces workflow_dispatch as dry-run only', /workflow_dispatch runs must use dry-run=true/],
   ['runs npm publish in dry-run mode by default', /npm publish --dry-run --access public --registry https:\/\/registry\.npmjs\.org/],
-  ['can run live npm publish only when dry-run is false', /if:\s*steps\.mode\.outputs\.dry-run == 'false'(?:.|\n)*run:\s*npm publish --access public --registry https:\/\/registry\.npmjs\.org/],
+  ['can run live npm publish only for release events when dry-run is false', /if:\s*github\.event_name == 'release' && steps\.mode\.outputs\['dry-run'\] == 'false'(?:.|\n)*run:\s*npm publish --access public --registry https:\/\/registry\.npmjs\.org/],
   ['does not use long-lived npm token secrets', /NODE_AUTH_TOKEN|NPM_TOKEN|npm_[A-Za-z0-9]/, true],
 ];
 
