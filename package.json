@@ -35,7 +35,7 @@
     "rxjs": "7.8.2",
     "svg-parser": "^2.0.4",
     "tslib": "^2.4.0",
-    "zone.js": "0.15.1"
+    "zone.js": "0.16.2"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "21.2.19",
@@ -45,19 +45,19 @@
     "@angular/cli": "21.2.19",
     "@angular/compiler-cli": "21.2.18",
     "@playwright/test": "1.62.0",
-    "@types/node": "24.13.3",
+    "@types/node": "25.9.1",
     "@typescript-eslint/eslint-plugin": "8.65.0",
     "@typescript-eslint/parser": "8.65.0",
     "@typescript-eslint/utils": "8.65.0",
-    "@vitest/coverage-v8": "2.1.9",
+    "@vitest/coverage-v8": "4.1.8",
     "coverage-badges-cli": "2.2.0",
-    "eslint": "9.39.5",
+    "eslint": "10.4.1",
     "eslint-config-prettier": "10.1.8",
     "ng-packagr": "21.2.5",
     "prettier": "3.9.6",
-    "typescript": "5.9.3",
+    "typescript": "6.0.3",
     "uswds": "2.14.0",
-    "vitest": "2.1.9"
+    "vitest": "4.1.8"
   },
   "allowScripts": {
     "esbuild@0.21.5": true,
