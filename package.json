@@ -55,7 +55,7 @@
     "eslint-config-prettier": "10.1.8",
     "ng-packagr": "21.2.5",
     "prettier": "3.9.6",
-    "typescript": "5.9.3",
+    "typescript": "6.0.3",
     "uswds": "2.14.0",
     "vitest": "2.1.9"
   },
