@@ -10,9 +10,13 @@ updates:
       semver-major-days: 60
     groups:
       minor:
+        patterns:
+          - '*'
         update-types:
           - 'minor'
       patch:
+        patterns:
+          - '*'
         update-types:
           - 'patch'
   - package-ecosystem: 'github-actions'
