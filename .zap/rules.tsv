@@ -1,0 +1,3 @@
+# ZAP baseline rules: rule-id<TAB>action<TAB>rationale and expiry.
+# This intentionally empty baseline means every WARN (medium) or FAIL (high) alert blocks CI.
+# Add exceptions only after following docs/security-scanning.md; never use an unqualified IGNORE.

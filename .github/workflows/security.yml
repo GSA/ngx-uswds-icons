@@ -1,0 +1,83 @@
+name: Security
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: security-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  sast:
+    name: SAST (${{ matrix.language }})
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      security-events: write
+    strategy:
+      fail-fast: false
+      matrix:
+        language: [javascript-typescript, actions]
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1
+        with:
+          languages: ${{ matrix.language }}
+          queries: security-extended
+
+      - name: Analyze
+        uses: github/codeql-action/analyze@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1
+        with:
+          category: /language:${{ matrix.language }}
+
+  dast:
+    name: DAST (OWASP ZAP)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Set up Node
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build demo runtime
+        run: npm run build -- --configuration production
+
+      - name: Serve demo runtime
+        run: |
+          python3 -m http.server 4200 --directory dist/ngx-uswds-icons-demo &
+          for attempt in {1..30}; do
+            curl --fail --silent http://127.0.0.1:4200/ >/dev/null && exit 0
+            sleep 1
+          done
+          exit 1
+
+      - name: Scan runtime with OWASP ZAP
+        uses: zaproxy/action-baseline@de8ad967d3548d44ef623df22cf95c3b0baf8b25 # v0.15.0
+        with:
+          target: 'http://127.0.0.1:4200'
+          rules_file_name: '.zap/rules.tsv'
+          fail_action: true
+          allow_issue_writing: false
+          cmd_options: '-a -l WARN'
+
+      - name: Upload ZAP report
+        if: always()
+        uses: actions/upload-artifact@bbbca2ddaa5d8feaa63e36b76fdaad77386f024f # v7.0.0
+        with:
+          name: zap-report
+          path: report_*.html
+          if-no-files-found: warn
