@@ -1,3 +1,2 @@
-# ZAP baseline rules: rule-id<TAB>action<TAB>rationale and expiry.
-# This intentionally empty baseline means every WARN (medium) or FAIL (high) alert blocks CI.
-# Add exceptions only after following docs/security-scanning.md; never use an unqualified IGNORE.
+# ZAP exceptions: rule-id<TAB>IGNORE<TAB>issue-url<TAB>owner<TAB>expiry(YYYY-MM-DD)<TAB>rationale
+# No exceptions are currently approved. Low-risk alerts are reported but do not block the medium/high gate.

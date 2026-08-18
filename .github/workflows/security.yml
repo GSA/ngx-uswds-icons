@@ -48,9 +48,12 @@ jobs:
         with:
           target: 'http://127.0.0.1:4200'
           rules_file_name: '.zap/rules.tsv'
-          fail_action: true
+          fail_action: false
           allow_issue_writing: false
-          cmd_options: '-a -l WARN'
+          cmd_options: '-a'
+
+      - name: Enforce medium/high severity gate
+        run: node scripts/check-zap-severity.mjs report_json.json .zap/rules.tsv
 
       - name: Upload ZAP report
         if: always()

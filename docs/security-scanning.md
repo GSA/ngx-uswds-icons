@@ -5,7 +5,7 @@ The `Security` GitHub Actions workflow complements Dependabot's dependency-updat
 ## Gates
 
 - **Analyze (`javascript-typescript`)** and **Analyze (`actions`)** are provided by the repository's CodeQL default setup. Code scanning merge protection should block pull requests that introduce a new medium- or high-severity alert. The default setup is intentionally not duplicated in `security.yml`, because GitHub rejects advanced-configuration SARIF uploads while default setup is enabled.
-- **DAST (OWASP ZAP)** builds and serves the production Angular demo with representative production security headers, then runs the ZAP baseline scanner. ZAP `WARN` (medium) and `FAIL` (high) alerts fail the job. The HTML report is retained as the `zap-report` artifact.
+- **DAST (OWASP ZAP)** builds and serves the production Angular demo with representative production security headers, then runs the ZAP baseline scanner. A separate report parser fails the job only for unexcepted alerts whose JSON `riskcode` is medium (`2`) or high (`3`); low-risk alerts remain visible in the retained `zap-report` artifact.
 
 Repository administrators must add these required status checks to the `master` branch protection or ruleset:
 
@@ -17,13 +17,19 @@ They must also enable the GitHub ruleset option **Code scanning results → Requ
 
 ## Initial baseline and triage
 
-The initial baseline in `.zap/rules.tsv` contains no ignored alerts, so medium- and high-severity DAST findings block immediately. CodeQL's pull-request comparison identifies findings introduced by changed code; existing default-branch findings remain visible in Security → Code scanning for separate triage rather than red-walling the rollout.
+The initial scan found six low-risk missing-header alerts from Python's development file server. The workflow now uses a server with representative production headers, and the follow-up scan identified two medium-risk header gaps that were fixed (`form-action` in CSP and Cross-Origin-Embedder-Policy). `.zap/rules.tsv` therefore contains no ignored alerts. ZAP's rule actions do not determine the gate: the JSON report's risk codes do, so pre-existing low-risk observations remain report-only while medium/high findings block immediately. CodeQL's pull-request comparison identifies findings introduced by changed code; existing default-branch findings remain visible in Security → Code scanning for separate triage rather than red-walling the rollout.
 
 Before making the checks required, run the workflow on `master` and triage every existing finding. Create a remediation issue for each valid finding. A finding that is demonstrably not exploitable may be dismissed in GitHub code scanning or temporarily added to the ZAP rules file using the process below.
 
 ## Exception policy
 
-Every exception must be reviewed in a pull request and include:
+For ZAP, use one tab-separated row per exception:
+
+```text
+rule-id<TAB>IGNORE<TAB>issue-url<TAB>owner<TAB>expiry(YYYY-MM-DD)<TAB>rationale
+```
+
+The policy validator rejects malformed or expired rows. Every exception must be reviewed in a pull request and include:
 
 1. the scanner rule or alert identifier;
 2. a link to its triage or remediation issue;

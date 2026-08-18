@@ -5,6 +5,7 @@ const ciWorkflowPath = '.github/workflows/ci.yml';
 const dependabotPath = '.github/dependabot.yml';
 const rulesPath = '.zap/rules.tsv';
 const documentationPath = 'docs/security-scanning.md';
+const severityGatePath = 'scripts/check-zap-severity.mjs';
 const failures = [];
 
 if (!existsSync(workflowPath)) {
@@ -13,12 +14,14 @@ if (!existsSync(workflowPath)) {
   const workflow = readFileSync(workflowPath, 'utf8');
   const checks = [
     ['runs for pull requests and pushes to master', /on:\s*\n(?=[\s\S]*pull_request:)(?=[\s\S]*push:\s*\n\s*branches:\s*\[master\])/],
-    ['uses least-privilege default permissions', /permissions:\s*\n\s*contents:\s*read\b/],
+    ['uses least-privilege default permissions', /^permissions:\s*\n  contents:\s*read\s*$/m],
+    ['does not grant security-events write in this workflow', !/^\s*security-events:\s*write\s*$/m.test(workflow)],
     ['defers SAST to the repository CodeQL default setup', !/github\/codeql-action\//.test(workflow)],
     ['builds the demo runtime before DAST', /dast:\s*\n[\s\S]*npm run build -- --configuration production/],
     ['serves the runtime with production security headers', /node scripts\/serve-security-scan\.mjs/],
     ['runs the OWASP ZAP baseline against the built runtime', /zaproxy\/action-baseline@[0-9a-f]{40}[\s\S]*target:\s*["']http:\/\/127\.0\.0\.1:\d+["']/],
-    ['fails DAST on warning-level or higher findings', /fail_action:\s*true[\s\S]*cmd_options:\s*["'][^"']*-l WARN[^"']*["']/],
+    ['does not let ZAP rule actions fail the scan', /fail_action:\s*false/],
+    ['enforces the JSON report severity gate', /node scripts\/check-zap-severity\.mjs report_json\.json \.zap\/rules\.tsv/],
     ['uses an explicit reviewed ZAP rules file', /rules_file_name:\s*["']\.zap\/rules\.tsv["']/],
   ];
 
@@ -34,6 +37,35 @@ if (!existsSync(ciWorkflowPath) || !/npm run validate:security-workflow/.test(re
 
 if (!existsSync(rulesPath)) {
   failures.push('provides the reviewed ZAP baseline rules file');
+} else {
+  const today = new Date().toISOString().slice(0, 10);
+  const exceptionRows = readFileSync(rulesPath, 'utf8')
+    .split(/\r?\n/)
+    .filter((line) => line.trim() && !line.startsWith('#'));
+  for (const row of exceptionRows) {
+    const [ruleId, action, issue, owner, expiry, rationale, ...extra] = row.split('\t');
+    if (
+      !/^\d+$/.test(ruleId) ||
+      action !== 'IGNORE' ||
+      !/^https:\/\/github\.com\/GSA\/ngx-uswds-icons\/issues\/\d+$/.test(issue) ||
+      !owner?.trim() ||
+      !/^\d{4}-\d{2}-\d{2}$/.test(expiry) ||
+      expiry < today ||
+      !rationale?.trim() ||
+      extra.length > 0
+    ) {
+      failures.push(`valid, unexpired ZAP exception row: ${row}`);
+    }
+  }
+}
+
+if (!existsSync(severityGatePath)) {
+  failures.push('provides the ZAP JSON severity gate');
+} else {
+  const severityGate = readFileSync(severityGatePath, 'utf8');
+  if (!/Number\(alert\.riskcode\) >= 2/.test(severityGate)) {
+    failures.push('blocks ZAP medium- and high-risk alerts by JSON riskcode');
+  }
 }
 
 if (!existsSync(documentationPath)) {
