@@ -4,13 +4,13 @@ The `Security` GitHub Actions workflow complements Dependabot's dependency-updat
 
 ## Gates
 
-- **SAST (`javascript-typescript`)** and **SAST (`actions`)** use CodeQL with the extended security query suite. Code scanning merge protection should block pull requests that introduce a new medium- or high-severity alert.
-- **DAST (OWASP ZAP)** builds and serves the production Angular demo, then runs the ZAP baseline scanner. ZAP `WARN` (medium) and `FAIL` (high) alerts fail the job. The HTML report is retained as the `zap-report` artifact.
+- **Analyze (`javascript-typescript`)** and **Analyze (`actions`)** are provided by the repository's CodeQL default setup. Code scanning merge protection should block pull requests that introduce a new medium- or high-severity alert. The default setup is intentionally not duplicated in `security.yml`, because GitHub rejects advanced-configuration SARIF uploads while default setup is enabled.
+- **DAST (OWASP ZAP)** builds and serves the production Angular demo with representative production security headers, then runs the ZAP baseline scanner. ZAP `WARN` (medium) and `FAIL` (high) alerts fail the job. The HTML report is retained as the `zap-report` artifact.
 
 Repository administrators must add these required status checks to the `master` branch protection or ruleset:
 
-- `SAST (javascript-typescript)`
-- `SAST (actions)`
+- `Analyze (javascript-typescript)`
+- `Analyze (actions)`
 - `DAST (OWASP ZAP)`
 
 They must also enable the GitHub ruleset option **Code scanning results → Require code scanning results**, selecting CodeQL and the threshold that blocks new medium-or-higher alerts. Branch protection and rulesets are admin-owned settings and cannot be applied by this repository change alone.

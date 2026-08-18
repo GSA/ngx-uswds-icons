@@ -14,16 +14,17 @@ if (!existsSync(workflowPath)) {
   const checks = [
     ['runs for pull requests and pushes to master', /on:\s*\n(?=[\s\S]*pull_request:)(?=[\s\S]*push:\s*\n\s*branches:\s*\[master\])/],
     ['uses least-privilege default permissions', /permissions:\s*\n\s*contents:\s*read\b/],
-    ['defines CodeQL SAST jobs for JavaScript/TypeScript and Actions', /sast:\s*\n[\s\S]*language:\s*\[javascript-typescript, actions\][\s\S]*github\/codeql-action\/init@[0-9a-f]{40}[\s\S]*languages:\s*\$\{\{ matrix\.language \}\}[\s\S]*github\/codeql-action\/analyze@[0-9a-f]{40}/],
-    ['grants security-events write only to SAST', /sast:\s*\n[\s\S]*permissions:\s*\n\s*contents:\s*read\b\s*\n\s*security-events:\s*write\b/],
+    ['defers SAST to the repository CodeQL default setup', !/github\/codeql-action\//.test(workflow)],
     ['builds the demo runtime before DAST', /dast:\s*\n[\s\S]*npm run build -- --configuration production/],
+    ['serves the runtime with production security headers', /node scripts\/serve-security-scan\.mjs/],
     ['runs the OWASP ZAP baseline against the built runtime', /zaproxy\/action-baseline@[0-9a-f]{40}[\s\S]*target:\s*["']http:\/\/127\.0\.0\.1:\d+["']/],
     ['fails DAST on warning-level or higher findings', /fail_action:\s*true[\s\S]*cmd_options:\s*["'][^"']*-l WARN[^"']*["']/],
     ['uses an explicit reviewed ZAP rules file', /rules_file_name:\s*["']\.zap\/rules\.tsv["']/],
   ];
 
-  for (const [description, pattern] of checks) {
-    if (!pattern.test(workflow)) failures.push(description);
+  for (const [description, condition] of checks) {
+    const passed = condition instanceof RegExp ? condition.test(workflow) : condition;
+    if (!passed) failures.push(description);
   }
 }
 

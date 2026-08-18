@@ -14,30 +14,6 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  sast:
-    name: SAST (${{ matrix.language }})
-    runs-on: ubuntu-latest
-    permissions:
-      contents: read
-      security-events: write
-    strategy:
-      fail-fast: false
-      matrix:
-        language: [javascript-typescript, actions]
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1
-        with:
-          languages: ${{ matrix.language }}
-          queries: security-extended
-
-      - name: Analyze
-        uses: github/codeql-action/analyze@38697555549f1db7851b81482ff19f1fa5c4fedc # v4.34.1
-        with:
-          category: /language:${{ matrix.language }}
-
   dast:
     name: DAST (OWASP ZAP)
     runs-on: ubuntu-latest
@@ -56,9 +32,11 @@ jobs:
       - name: Build demo runtime
         run: npm run build -- --configuration production
 
-      - name: Serve demo runtime
+      - name: Serve demo runtime with production security headers
+        run: node scripts/serve-security-scan.mjs &
+
+      - name: Wait for demo runtime
         run: |
-          python3 -m http.server 4200 --directory dist/ngx-uswds-icons-demo &
           for attempt in {1..30}; do
             curl --fail --silent http://127.0.0.1:4200/ >/dev/null && exit 0
             sleep 1
