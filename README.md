@@ -35,7 +35,11 @@ This project uses [ESLint 9](https://eslint.org/) with flat config (`eslint.conf
 npm run lint
 ```
 
-The config file is `eslint.config.mjs`. Generated files in `projects/icons/src/lib/uswds-icons/` and `scripts/` are excluded from linting.
+The config file is `eslint.config.mjs`. Generated files in `projects/icons/src/lib/uswds-icons/` and `scripts/` are excluded from linting. Angular templates are checked with both the recommended and accessibility rule sets from `@angular-eslint/eslint-plugin-template`.
+
+### Accessibility scope
+
+Template accessibility linting is the accepted WCAG 2.1 AA gate for this repository. This package is a small icon library with no independent color, contrast, focus-order, or rendered ARIA-state surface; those runtime characteristics depend on the consuming application and must be tested there. The demo's Playwright suite remains a smoke test and is not presented as a complete runtime WCAG audit. No repository-specific runtime accessibility follow-up is currently warranted.
 
 ## Formatting
 
