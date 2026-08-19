@@ -14,7 +14,8 @@
     "regenerateIcons": "./scripts/copy-svgs.sh",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "validate:publish-workflow": "node scripts/validate-publish-workflow.mjs"
+    "validate:publish-workflow": "node scripts/validate-publish-workflow.mjs",
+    "validate:security-workflow": "node scripts/validate-security-workflow.mjs"
   },
   "private": true,
   "engines": {

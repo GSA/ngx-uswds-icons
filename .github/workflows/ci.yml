@@ -31,6 +31,9 @@ jobs:
       - name: Validate publish workflow
         run: npm run validate:publish-workflow
 
+      - name: Validate security workflow
+        run: npm run validate:security-workflow
+
       - name: Test with coverage
         run: npm run test:coverage
 
