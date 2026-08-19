@@ -51,6 +51,7 @@ export default [
     },
     rules: {
       ...angularTemplatePlugin.configs.recommended.rules,
+      ...angularTemplatePlugin.configs.accessibility.rules,
     },
   },
 ];
