@@ -1,11 +1,19 @@
 # Security scanning
 
+This repository publishes an **Angular library** — executable JavaScript/TypeScript that runs inside consuming applications. Its security posture is layered: Dependabot for dependency hygiene, CodeQL (SAST) for the code we ship, and an OWASP ZAP (DAST) scan of the internal demo app. The rationale for each control — and the deliberate limits of the DAST scan — is recorded in [ADR 0001](adr/0001-security-scanning-posture.md).
+
 The `Security` GitHub Actions workflow complements Dependabot's dependency-update coverage with static and dynamic application security testing. Dependabot remains complementary and is not replaced. The workflow runs on every pull request, every push to `master`, and manual dispatches.
+
+## Least-privilege workflow permissions
+
+Every workflow declares an explicit `permissions` block so `GITHUB_TOKEN` is scoped to least privilege (CodeQL rule `actions/missing-workflow-permissions`). `security.yml` runs entirely read-only. `ci.yml` defaults to `contents: read`, and its `build` job — which runs PR-controlled code (checkout, `npm` scripts) — stays read-only. Coverage-badge publication is isolated in a separate `publish-badge` job that runs **no** PR-controlled code: it only downloads the badge artifact and commits it, is gated to pushes on `master`, and is the sole holder of `contents: write`. This keeps any push credential out of jobs that execute untrusted pull-request code.
 
 ## Gates
 
 - **Analyze (`javascript-typescript`)** and **Analyze (`actions`)** are provided by the repository's CodeQL default setup. Code scanning merge protection should block pull requests that introduce a new medium- or high-severity alert. The default setup is intentionally not duplicated in `security.yml`, because GitHub rejects advanced-configuration SARIF uploads while default setup is enabled.
 - **DAST (OWASP ZAP)** builds and serves the production Angular demo with representative production security headers, then runs the ZAP baseline scanner. A separate report parser fails the job only for unexcepted alerts whose JSON `riskcode` is medium (`2`) or high (`3`); low-risk alerts remain visible in the retained `zap-report` artifact.
+
+  **Scope caveat (see [ADR 0001](adr/0001-security-scanning-posture.md)):** ZAP scans the `src/` **demo app**, which is internal tooling and is **not** the published package. The library built from `projects/icons/` is what ships to consumers, and it has no standalone runtime surface. This DAST scan is therefore defense-in-depth on the demo, not a control that protects the delivered library. CodeQL (SAST), which analyzes the code we actually ship, is the primary control here.
 
 Repository administrators must add these required status checks to the `master` branch protection or ruleset:
 
