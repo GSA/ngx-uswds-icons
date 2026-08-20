@@ -55,10 +55,13 @@ Current state at the time of this decision:
    code.
 
 2. **Fix the real finding first.** Add an explicit least-privilege `permissions`
-   block to `ci.yml`. The workflow defaults to `contents: read`; the single
-   build job is granted `contents: write` because it pushes the coverage badge
-   to `master`. GitHub Actions does not support step-level `permissions`, so the
-   job is the narrowest boundary available for that write scope.
+   block to `ci.yml`. The workflow defaults to `contents: read`, and the `build`
+   job — which runs PR-controlled code (checkout, `npm` scripts) — stays
+   read-only. Coverage-badge publication is isolated in a dedicated
+   `publish-badge` job that runs no PR-controlled code (it only downloads the
+   badge artifact and commits it), is gated to pushes on `master`, and is the
+   sole holder of `contents: write`. This keeps a push credential out of any job
+   that executes untrusted pull-request code.
 
 3. **Retain the demo-app DAST scan (from PR #101), with eyes open.** We keep the
    OWASP ZAP scan of the demo app for parity with the sam-styles pattern and

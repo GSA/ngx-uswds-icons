@@ -38,7 +38,7 @@
 - **Do not** add a committed CodeQL workflow — default setup is enabled and a committed workflow conflicts with it and fails at startup.
 - The ZAP DAST scan targets the `src/` demo app, which is **not** published; treat it as defense-in-depth on tooling, not a control over the shipped library. See the ADR before expanding or removing it.
 - `npm run validate:security-workflow` guards `.github/workflows/security.yml`; run it after any change to the security workflow, `.zap/rules.tsv`, or `docs/security-scanning.md` (it also runs in CI).
-- Every workflow must declare an explicit least-privilege `permissions` block (CodeQL `actions/missing-workflow-permissions`). `ci.yml` defaults to `contents: read` and grants `contents: write` on the build job only (badge push); GitHub Actions has no step-level `permissions`.
+- Every workflow must declare an explicit least-privilege `permissions` block (CodeQL `actions/missing-workflow-permissions`). In `ci.yml` the default is `contents: read` and the PR-facing `build` job stays read-only; coverage-badge publication is isolated in a separate `publish-badge` job (gated to pushes on `master`) that runs no PR-controlled code and is the only holder of `contents: write`.
 
 ## Publishing workflow
 

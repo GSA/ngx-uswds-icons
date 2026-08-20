@@ -7,19 +7,20 @@ on:
   workflow_dispatch:
 
 # Least-privilege default for GITHUB_TOKEN (CodeQL: actions/missing-workflow-permissions).
-# Workflow defaults to read-only; the build job below elevates to contents:
-# write only because it pushes the coverage badge (no step-level scope exists).
+# Every job is read-only by default; only the dedicated badge-publish job
+# (gated to pushes on master) is granted contents: write. This keeps
+# PR-controlled code out of any job that holds a push credential.
 permissions:
   contents: read
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    # This job pushes the coverage badge back to master, so it needs
-    # contents: write. All other work is read-only; the write scope is
-    # required by the "Commit coverage badge" step below.
+    # Read-only: this job runs PR-controlled code (npm scripts, checkout) and
+    # must never hold a push credential. The coverage badge it generates is
+    # handed to the publish-badge job below via an artifact.
     permissions:
-      contents: write
+      contents: read
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
@@ -62,14 +63,39 @@ jobs:
           path: coverage/**
           if-no-files-found: warn
 
-      - name: Commit coverage badge
+      - name: Upload coverage badge
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: coverage-badge
+          path: .github/badges/coverage.svg
+          if-no-files-found: error
+
+      - name: Build
+        run: npm run build-prod
+
+  # Dedicated, minimal-surface job: it runs no PR-controlled code, only
+  # downloads the badge artifact produced by build and commits it. This is the
+  # only job granted contents: write, and it is gated to pushes on master.
+  publish-badge:
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Download coverage badge
+        uses: actions/download-artifact@37930b1c2abaa49bbe596cd826c3c89aef350131 # v7.0.0
+        with:
+          name: coverage-badge
+          path: .github/badges
+
+      - name: Commit coverage badge
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add .github/badges/coverage.svg
           git diff --staged --quiet || git commit -m "chore: update coverage badge [skip ci]"
           git push || echo "Badge push skipped (protected branch or insufficient token permissions)"
-
-      - name: Build
-        run: npm run build-prod

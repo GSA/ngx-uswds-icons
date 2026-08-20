@@ -6,7 +6,7 @@ The `Security` GitHub Actions workflow complements Dependabot's dependency-updat
 
 ## Least-privilege workflow permissions
 
-Every workflow declares an explicit `permissions` block so `GITHUB_TOKEN` is scoped to least privilege (CodeQL rule `actions/missing-workflow-permissions`). `security.yml` runs entirely read-only. `ci.yml` defaults to `contents: read` and elevates only its build job to `contents: write`, which is required to push the coverage badge to `master`; GitHub Actions has no step-level `permissions`, so the job is the narrowest scope available for that write.
+Every workflow declares an explicit `permissions` block so `GITHUB_TOKEN` is scoped to least privilege (CodeQL rule `actions/missing-workflow-permissions`). `security.yml` runs entirely read-only. `ci.yml` defaults to `contents: read`, and its `build` job — which runs PR-controlled code (checkout, `npm` scripts) — stays read-only. Coverage-badge publication is isolated in a separate `publish-badge` job that runs **no** PR-controlled code: it only downloads the badge artifact and commits it, is gated to pushes on `master`, and is the sole holder of `contents: write`. This keeps any push credential out of jobs that execute untrusted pull-request code.
 
 ## Gates
 
