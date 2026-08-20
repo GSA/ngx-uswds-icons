@@ -6,9 +6,20 @@ on:
   pull_request:
   workflow_dispatch:
 
+# Least-privilege default for GITHUB_TOKEN (CodeQL: actions/missing-workflow-permissions).
+# Workflow defaults to read-only; the build job below elevates to contents:
+# write only because it pushes the coverage badge (no step-level scope exists).
+permissions:
+  contents: read
+
 jobs:
   build:
     runs-on: ubuntu-latest
+    # This job pushes the coverage badge back to master, so it needs
+    # contents: write. All other work is read-only; the write scope is
+    # required by the "Commit coverage badge" step below.
+    permissions:
+      contents: write
 
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1

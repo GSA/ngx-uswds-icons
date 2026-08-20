@@ -32,6 +32,14 @@
 - Coverage thresholds are 80% for statements, branches, functions, and lines.
 - The Playwright suite is intentionally a narrow smoke test: it loads the demo, fails on browser/page errors, and verifies visible icon output.
 
+## Security scanning
+
+- Posture is layered and documented in `docs/security-scanning.md`, with the rationale in `docs/adr/0001-security-scanning-posture.md`: Dependabot (dependency hygiene), CodeQL **default setup** (SAST — the primary control, since this repo ships executable JS/TS), and OWASP ZAP (DAST) against the internal demo app.
+- **Do not** add a committed CodeQL workflow — default setup is enabled and a committed workflow conflicts with it and fails at startup.
+- The ZAP DAST scan targets the `src/` demo app, which is **not** published; treat it as defense-in-depth on tooling, not a control over the shipped library. See the ADR before expanding or removing it.
+- `npm run validate:security-workflow` guards `.github/workflows/security.yml`; run it after any change to the security workflow, `.zap/rules.tsv`, or `docs/security-scanning.md` (it also runs in CI).
+- Every workflow must declare an explicit least-privilege `permissions` block (CodeQL `actions/missing-workflow-permissions`). `ci.yml` defaults to `contents: read` and grants `contents: write` on the build job only (badge push); GitHub Actions has no step-level `permissions`.
+
 ## Publishing workflow
 
 - `npm run validate:publish-workflow` guards `.github/workflows/publish.yml`; run it after any workflow/publish-path change.
