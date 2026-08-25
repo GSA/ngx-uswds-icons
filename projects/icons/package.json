@@ -2,6 +2,14 @@
   "name": "@gsa-sam/ngx-uswds-icons",
   "version": "21.0.0",
   "types": "../../../dist/out-tsc/projects/icons/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/GSA/ngx-uswds-icons.git"
+  },
+  "homepage": "https://github.com/GSA/ngx-uswds-icons#readme",
+  "bugs": {
+    "url": "https://github.com/GSA/ngx-uswds-icons/issues"
+  },
   "publishConfig": {
     "registry": "https://registry.npmjs.org/",
     "access": "public"
