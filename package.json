@@ -54,7 +54,7 @@
     "coverage-badges-cli": "2.2.0",
     "eslint": "9.39.5",
     "eslint-config-prettier": "10.1.8",
-    "ng-packagr": "21.2.5",
+    "ng-packagr": "22.0.1",
     "prettier": "3.9.6",
     "typescript": "5.9.3",
     "uswds": "2.14.0",
