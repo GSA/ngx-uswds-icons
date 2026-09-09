@@ -47,3 +47,6 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+
+# generated lint report (produced by npm run lint:report / lint:baseline)
+/eslint-report.json

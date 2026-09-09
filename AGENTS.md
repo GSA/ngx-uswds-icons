@@ -27,6 +27,9 @@
 ## Linting, formatting, and tests
 
 - ESLint uses flat config in `eslint.config.mjs`; `scripts/`, `test/`, generated USWDS icons, `dist/`, and coverage output are ignored.
+- A ratcheting warning-baseline gate sits on top of `npm run lint`: `eslint-baseline.json` (key `root` — this repo is a single workspace, unlike `sam-ui-elements`' root/test-app split) + `scripts/check-lint-baseline.mjs` fail the build if warnings exceed the recorded baseline, or if there are _any_ errors (errors always fail regardless of the baseline). Run `npm run lint:baseline` locally; `npm run lint:baseline:bump` only ever lowers the baseline, never raises it.
+- The `build` job in `.github/workflows/ci.yml` additionally runs `scripts/check-baseline-not-increased.mjs` (PR events only), comparing `eslint-baseline.json` on the PR branch against the base branch — this closes the hole where a contributor could raise the ceiling by hand-editing the JSON in the same PR that adds new warnings. The `--bump` script is the only sanctioned way to change the baseline file.
+- `scripts/check-lint-baseline.test.mjs` and `scripts/check-baseline-not-increased.test.mjs` exist and pass but are **not** run in CI — run `node --test scripts/*.test.mjs` manually when touching either gate script.
 - Prettier ignores generated USWDS icons and `scripts/` via `.prettierignore`.
 - Vitest runs `projects/**/*.spec.ts` in a Node environment. `vitest.config.ts` aliases `@angular/core` to `test/__mocks__/@angular/core.ts` so component classes can be tested as plain TypeScript.
 - Coverage thresholds are 80% for statements, branches, functions, and lines.
