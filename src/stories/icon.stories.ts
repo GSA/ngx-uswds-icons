@@ -2,18 +2,13 @@ import type { Meta, StoryObj } from '@storybook/angular';
 import { moduleMetadata } from '@storybook/angular';
 import { NgxBootstrapIconsModule, allIcons as bootstrapIcons } from 'ngx-bootstrap-icons';
 import { IconComponent, IconModule, allIcons as sdsIcons, uswdsAllIcons } from 'projects/icons/src/public-api';
-import * as _ from 'lodash';
 import { appendPrefix } from '../app/app.module';
 
 // Registers every icon this library ships (USWDS + SDS custom icons + the
 // underlying Bootstrap set) so the a11y gate exercises the full rendered SVG
-// surface, not a hand-picked subset.
-const icons = Object.assign(
-  {},
-  _.cloneDeep(bootstrapIcons),
-  appendPrefix(_.cloneDeep(sdsIcons), 'sds'),
-  _.cloneDeep(uswdsAllIcons),
-);
+// surface, not a hand-picked subset. Icon values are plain immutable SVG path
+// strings, so a shallow merge is sufficient — no deep clone needed.
+const icons = Object.assign({}, bootstrapIcons, appendPrefix(sdsIcons, 'sds'), uswdsAllIcons);
 
 const meta: Meta<IconComponent> = {
   title: 'Icons/IconComponent',

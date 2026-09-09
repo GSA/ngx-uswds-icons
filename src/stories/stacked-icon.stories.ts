@@ -8,15 +8,11 @@ import {
   allIcons as sdsIcons,
   uswdsAllIcons,
 } from 'projects/icons/src/public-api';
-import * as _ from 'lodash';
 import { appendPrefix } from '../app/app.module';
 
-const icons = Object.assign(
-  {},
-  _.cloneDeep(bootstrapIcons),
-  appendPrefix(_.cloneDeep(sdsIcons), 'sds'),
-  _.cloneDeep(uswdsAllIcons),
-);
+// Icon values are plain immutable SVG path strings, so a shallow merge is
+// sufficient — no deep clone needed.
+const icons = Object.assign({}, bootstrapIcons, appendPrefix(sdsIcons, 'sds'), uswdsAllIcons);
 
 const meta: Meta<StackedIconComponent> = {
   title: 'Icons/StackedIconComponent',
