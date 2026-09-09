@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 /**
- * Ratcheting warning-baseline gate for ESLint (run via `npm run lint`, which
- * invokes `eslint .` directly — this repo has a single workspace, unlike
- * sam-ui-elements' root/test-app split).
+ * Ratcheting warning-baseline gate for ESLint (run via `npm run lint:baseline`,
+ * which invokes `eslint . --format json` once to produce the report this
+ * script reads — this repo has a single workspace, unlike sam-ui-elements'
+ * root/test-app split).
  *
  * `eslint`'s own `--max-warnings` option only supports a single fixed
  * number, which can't ratchet down as debt is paid off without editing CI
@@ -23,13 +24,19 @@
  *
  * Where <workspace> is a key in eslint-baseline.json (currently just "root")
  * and the ESLint report is produced with `--format json --output-file <path>`.
+ *
+ * The repo-root baseline path can be overridden via the ESLINT_BASELINE_PATH
+ * env var (used by the test suite so it exercises the real CLI against a
+ * disposable temp file instead of mutating the committed baseline).
  */
 import { readFileSync, writeFileSync } from 'node:fs';
 import { resolve, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 const scriptDir = dirname(fileURLToPath(import.meta.url));
-const baselinePath = resolve(scriptDir, '..', 'eslint-baseline.json');
+const baselinePath = process.env.ESLINT_BASELINE_PATH
+  ? resolve(process.env.ESLINT_BASELINE_PATH)
+  : resolve(scriptDir, '..', 'eslint-baseline.json');
 
 const args = process.argv.slice(2);
 const bump = args.includes('--bump');
@@ -50,6 +57,13 @@ try {
   console.error(`✖ Could not read ESLint report at ${reportPath}`);
   console.error(`  ${error.message}`);
   console.error('  Run `eslint . --format json --output-file <path>` first to generate it.');
+  process.exit(1);
+}
+
+if (!Array.isArray(report)) {
+  console.error(`✖ Could not read ESLint report at ${reportPath}`);
+  console.error(`  Expected an array of per-file results (the shape produced by \`eslint --format json\`), got ${typeof report}.`);
+  console.error('  Run `eslint . --format json --output-file <path>` to regenerate a well-formed report.');
   process.exit(1);
 }
 

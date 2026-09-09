@@ -4,7 +4,7 @@
 
 - Use Node 24 from `.nvmrc` (`nvm use` or equivalent) before `npm ci`; `package.json` requires `>=24.0.0 <25`.
 - Install with `npm ci`. The repo pins the public npm registry in `.npmrc` so installs do not inherit a contributor's private/global registry.
-- CI's effective check order is: `npm run format:check` → `npm run lint` → `npm run validate:publish-workflow` → `npm run test:coverage` → `npx playwright install --with-deps chromium` → `npm run e2e` → `npm run build-prod`.
+- CI's effective check order is: `npm run format:check` → `npm run lint:baseline` (single ESLint run that both fails on any error and enforces the warning ceiling) → `npm run validate:publish-workflow` → `npm run test:coverage` → `npx playwright install --with-deps chromium` → `npm run e2e` → `npm run build-prod`.
 - Local shorthand checks:
   - `npm test` runs Vitest without coverage.
   - `npm run test:coverage` also regenerates `.github/badges/coverage.svg`.
@@ -27,7 +27,7 @@
 ## Linting, formatting, and tests
 
 - ESLint uses flat config in `eslint.config.mjs`; `scripts/`, `test/`, generated USWDS icons, `dist/`, and coverage output are ignored.
-- A ratcheting warning-baseline gate sits on top of `npm run lint`: `eslint-baseline.json` (key `root` — this repo is a single workspace, unlike `sam-ui-elements`' root/test-app split) + `scripts/check-lint-baseline.mjs` fail the build if warnings exceed the recorded baseline, or if there are _any_ errors (errors always fail regardless of the baseline). Run `npm run lint:baseline` locally; `npm run lint:baseline:bump` only ever lowers the baseline, never raises it.
+- A ratcheting warning-baseline gate sits on top of ESLint: `eslint-baseline.json` (key `root` — this repo is a single workspace, unlike `sam-ui-elements`' root/test-app split) + `scripts/check-lint-baseline.mjs` fail the build if warnings exceed the recorded baseline, or if there are _any_ errors (errors always fail regardless of the baseline). CI runs this gate (`npm run lint:baseline`, which itself invokes `eslint .` to produce the report) as its only ESLint step — there is no separate bare `npm run lint` step in CI, since that would run ESLint twice. `npm run lint` is still available for a quick local check without the baseline comparison; `npm run lint:baseline:bump` only ever lowers the baseline, never raises it.
 - The `build` job in `.github/workflows/ci.yml` additionally runs `scripts/check-baseline-not-increased.mjs` (PR events only), comparing `eslint-baseline.json` on the PR branch against the base branch — this closes the hole where a contributor could raise the ceiling by hand-editing the JSON in the same PR that adds new warnings. The `--bump` script is the only sanctioned way to change the baseline file.
 - `scripts/check-lint-baseline.test.mjs` and `scripts/check-baseline-not-increased.test.mjs` exist and pass but are **not** run in CI — run `node --test scripts/*.test.mjs` manually when touching either gate script.
 - Prettier ignores generated USWDS icons and `scripts/` via `.prettierignore`.

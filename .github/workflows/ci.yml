@@ -39,16 +39,13 @@ jobs:
       - name: Check formatting
         run: npm run format:check
 
-      - name: Lint
-        run: npm run lint
-
       - name: Guard against a raised ESLint warning baseline
         if: github.event_name == 'pull_request'
         run: |
           git show "${{ github.event.pull_request.base.sha }}:eslint-baseline.json" > /tmp/base-eslint-baseline.json 2>/dev/null || echo '{}' > /tmp/base-eslint-baseline.json
           node scripts/check-baseline-not-increased.mjs /tmp/base-eslint-baseline.json eslint-baseline.json
 
-      - name: Guard ESLint warning baseline
+      - name: Lint (ESLint warning baseline gate)
         run: npm run lint:baseline
 
       - name: Validate publish workflow
