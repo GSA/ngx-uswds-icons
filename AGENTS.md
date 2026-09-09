@@ -4,10 +4,11 @@
 
 - Use Node 24 from `.nvmrc` (`nvm use` or equivalent) before `npm ci`; `package.json` requires `>=24.0.0 <25`.
 - Install with `npm ci`. The repo pins the public npm registry in `.npmrc` so installs do not inherit a contributor's private/global registry.
-- CI's effective check order is: `npm run format:check` → `npm run lint` → `npm run validate:publish-workflow` → `npm run test:coverage` → `npx playwright install --with-deps chromium` → `npm run e2e` → `npm run build-prod`.
+- CI's effective check order is: `npm run format:check` → `npm run lint` → `npm run validate:publish-workflow` → `npm run validate:security-workflow` → `npm run test:scripts` → `npm run test:coverage` → `npx playwright install --with-deps chromium` → `npm run e2e` → `npm run build-prod`.
 - Local shorthand checks:
   - `npm test` runs Vitest without coverage.
-  - `npm run test:coverage` also regenerates `.github/badges/coverage.svg`.
+  - `npm run test:coverage` also regenerates `.github/badges/coverage.svg` and the root `coverage-floor.json` snapshot (`{statements, branches, functions, lines}`, matching the shape used by `ngx-uswds` and `sam-ui-elements`). Unlike those repos, it is **not** a ratchet gate — `scripts/write-coverage-floor.mjs` just overwrites the snapshot with the currently measured coverage; nothing fails CI on regression.
+  - `npm run test:scripts` runs the Node built-in test runner (`node --test`) against `scripts/*.test.mjs`, e.g. `scripts/write-coverage-floor.test.mjs`.
   - `npm run e2e` starts the Angular demo app through Playwright; install Chromium once with `npx playwright install chromium` if missing.
 
 ## Project layout
@@ -22,7 +23,7 @@
 - `npm run build`, `npm run build-prod`, and `npm start` all run `npm run regenerateIcons` first.
 - `regenerateIcons` runs `scripts/copy-svgs.sh`, which rebuilds `projects/icons/src/lib/uswds-icons/` from `node_modules/uswds/src/img/usa-icons` and uses the root `test/` directory as scratch space.
 - After running build/regeneration commands, check `git status`. Restore generated/spec/test-support files unless the change intentionally updates generated icons.
-- After `npm run test:coverage`, check whether `.github/badges/coverage.svg` changed; do not commit badge churn unless that is the purpose of the change.
+- After `npm run test:coverage`, check whether `.github/badges/coverage.svg` or `coverage-floor.json` changed; do not commit badge/floor churn unless that is the purpose of the change. In CI, both files are only committed by the master-push-only `publish-badge` job — the PR-facing `build` job regenerates them but stays read-only.
 
 ## Linting, formatting, and tests
 
