@@ -39,7 +39,7 @@ The config file is `eslint.config.mjs`. Generated files in `projects/icons/src/l
 
 ### Accessibility scope
 
-Template accessibility linting is the accepted WCAG 2.1 AA gate for this repository. This package is a small icon library with no independent color, contrast, focus-order, or rendered ARIA-state surface; those runtime characteristics depend on the consuming application and must be tested there. The demo's Playwright suite remains a smoke test and is not presented as a complete runtime WCAG audit. No repository-specific runtime accessibility follow-up is currently warranted.
+Template accessibility linting (`@angular-eslint/eslint-plugin-template`'s accessibility rule set) catches static template issues at lint time. On top of that, a runtime WCAG 2.1 AA gate walks every Storybook story with axe-core (`npm run test:a11y`) — see [Storybook and the accessibility gate](#storybook-and-the-accessibility-gate) below. Together these are the accepted WCAG 2.1 AA posture for this repository: lint catches static template defects, and the axe-core gate catches rendered violations (color contrast, computed ARIA state, etc.) across the icon components' actual DOM output. The demo's Playwright suite remains a smoke test and is not itself a WCAG audit.
 
 ## Formatting
 
@@ -64,6 +64,24 @@ Run `npm test` to execute the unit tests via [Vitest](https://vitest.dev/).
 Run `npm run e2e` to execute the Playwright smoke test against the demo application in Chromium. On a fresh local checkout, run `npx playwright install chromium` once before the first e2e run.
 
 The current e2e scope is intentionally narrow: Playwright starts the Angular demo app, loads the root page, fails on browser console errors, and verifies that expected demo content and at least one rendered SVG icon are present. This provides upgrade confidence without introducing a broad, high-maintenance browser test suite.
+
+## Storybook and the accessibility gate
+
+Storybook (`.storybook/`) hosts stories for `usa-icon` (`IconComponent`) and `usa-stacked-icon` (`StackedIconComponent`) in `src/stories/`, exercising icons from all three sources this library ships: USWDS icons, the bundled custom "SDS" icons, and the underlying Bootstrap Icons set that `ngx-bootstrap-icons` provides.
+
+```bash
+# Run Storybook locally
+npm run storybook
+
+# Build the static Storybook site (used by the a11y gate and CI)
+npm run build-storybook
+```
+
+`npm run test:a11y` runs a dedicated Playwright config (`playwright.a11y.config.ts`) against the built Storybook static output. It walks every published story, runs [`@axe-core/playwright`](https://github.com/dequelabs/axe-core-npm) with the WCAG 2.1 A/AA tag set, and compares the rendered violations against a committed baseline (`tests/accessibility/wcag-2.1-aa-baseline.json`). New violations fail the gate; resolved violations must be pruned from the baseline. Stories that fail to render are tracked separately in `tests/accessibility/storybook-render-failures.json` (also a ratchet). Regenerate either file intentionally with:
+
+```bash
+UPDATE_A11Y_BASELINE=1 npm run test:a11y
+```
 
 ## Contributing
 
