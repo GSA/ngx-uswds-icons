@@ -51,3 +51,6 @@ Thumbs.db
 *storybook.log
 storybook-static
 documentation.json
+
+# generated lint report (produced by npm run lint:report / lint:baseline)
+/eslint-report.json
